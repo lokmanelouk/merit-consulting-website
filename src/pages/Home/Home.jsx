@@ -26,7 +26,6 @@ import {
   FiShoppingCart,
 } from 'react-icons/fi';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
-import casablancaSkyline from '../../assets/casablanca_skyline.png';
 import heroCasablanca from '../../assets/hero-casablanca.png';
 import './Home.css';
 
