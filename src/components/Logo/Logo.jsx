@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import chevronIcon from '../../assets/chevron.png';
 import './Logo.css';
 
-// SVG Chevron matching the brand accent color
-const defaultChevron = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F6FB2' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 18 15 12 9 6'></polyline></svg>";
-
-export default function Logo({ className = '', isDarkBg = false, chevronIcon = defaultChevron }) {
+const Logo = ({ className = "", isDarkBg = false }) => {
   return (
     <Link
       to="/"
@@ -14,7 +12,7 @@ export default function Logo({ className = '', isDarkBg = false, chevronIcon = d
       <div className="flex items-center uppercase tracking-tighter">
         <span
           style={{ color: isDarkBg ? "#FFFFFF" : "#0B1F33" }}
-          className="font-bold text-xl md:text-2xl"
+          className="font-bold text-xl md:text-2xl transition-colors duration-300"
         >
           MERIT
         </span>
@@ -26,16 +24,22 @@ export default function Logo({ className = '', isDarkBg = false, chevronIcon = d
         <img
           src={chevronIcon}
           alt=""
-          className="ml-1 h-[18px] md:h-[22px] w-auto object-contain self-center mt-1"
+          className="ml-1 h-[18px] md:h-[22px] w-auto object-contain self-center mt-1 group-hover:translate-x-1 transition-transform"
         />
       </div>
 
       <span
-        style={{ color: "#9CA3AF" }}
-        className="text-[10px] md:text-[11px] font-medium tracking-tight -mt-1 ml-0.5"
+        style={{
+          color: isDarkBg ? "rgba(255,255,255,0.7)" : "#9CA3AF",
+          alignSelf: 'flex-start', // Forces it to the left edge
+          textAlign: 'left'        // Ensures text starts at the left
+        }}
+        className="ml-0 w-full text-[10px] md:text-[11px] font-medium tracking-tight -mt-1 transition-colors duration-300"
       >
         Intelligent Systems. Delivered.
       </span>
     </Link>
   );
-}
+};
+
+export default Logo;

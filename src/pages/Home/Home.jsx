@@ -173,12 +173,6 @@ export default function Home() {
   };
 
   // Parallax scroll effect for geometric shapes
-  const { scrollY } = useScroll();
-  const yShape1 = useTransform(scrollY, [0, 1000], [0, -150]);
-  const yShape2 = useTransform(scrollY, [0, 1000], [0, 100]);
-  const yShape3 = useTransform(scrollY, [0, 1000], [0, -80]);
-  const yShape6 = useTransform(scrollY, [0, 1000], [0, 60]);
-
   // Stagger variants for Hero load
   const heroContainerVariants = {
     hidden: { opacity: 0 },
@@ -204,16 +198,10 @@ export default function Home() {
     <main className="home">
       {/* ====== 1. HERO ====== */}
       <section className="hero">
-        {/* Animated background shapes with Parallax */}
-        <div className="hero__shapes" aria-hidden="true">
-          <motion.span className="shape shape--circle shape--1" style={{ y: yShape1 }} />
-          <motion.span className="shape shape--circle shape--2" style={{ y: yShape2 }} />
-          <motion.span className="shape shape--circle shape--3" style={{ y: yShape3 }} />
-          <span className="shape shape--line shape--4" />
-          <span className="shape shape--line shape--5" />
-          <motion.span className="shape shape--circle shape--6" style={{ y: yShape6 }} />
-          <span className="shape shape--line shape--7" />
-        </div>
+        {/* Premium background layer stack */}
+        <div className="hero__bg-image" aria-hidden="true" />
+        <div className="hero__mesh-overlay" aria-hidden="true" />
+        <div className="hero__grid-overlay" aria-hidden="true" />
 
         <div className="container hero__container">
           <motion.div 
@@ -222,6 +210,9 @@ export default function Home() {
             initial="hidden"
             animate="visible"
           >
+            <motion.span className="hero__label" variants={heroItemVariants}>
+              Certified SAP Business One Partner
+            </motion.span>
             <motion.h1 className="hero__title" variants={heroItemVariants}>
               Digital Transformation and{' '}
               <span className="hero__highlight">SAP Business One</span> Experts

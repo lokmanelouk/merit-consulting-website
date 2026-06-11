@@ -10,94 +10,51 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--primary-dark) 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
+  background-color: #071124; /* High-end dark corporate navy base */
   overflow: hidden;
   padding: calc(var(--navbar-height) + var(--space-3xl)) 0 var(--space-4xl);
 }
 
-/* Geometric background shapes */
-.hero__shapes {
+/* Premium background overlays */
+.hero__bg-image {
   position: absolute;
   inset: 0;
+  background-image: url('../../assets/casablanca_skyline.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* 85% dark mask */
+  z-index: 0;
+  pointer-events: none;
+  filter: grayscale(20%) brightness(0.9);
+}
+
+.hero__mesh-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(0, 180, 216, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(30, 86, 160, 0.25) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(10, 36, 99, 0.2) 0%, transparent 50%);
+  z-index: 1;
   pointer-events: none;
 }
 
-.shape {
+.hero__grid-overlay {
   position: absolute;
-  border-radius: 50%;
-}
-
-.shape--circle {
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.shape--line {
-  border-radius: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-}
-
-.shape--1 {
-  width: 400px;
-  height: 400px;
-  top: -80px;
-  right: -100px;
-  animation: float 8s ease-in-out infinite;
-}
-
-.shape--2 {
-  width: 250px;
-  height: 250px;
-  bottom: 15%;
-  left: -60px;
-  animation: float 10s ease-in-out infinite 1s;
-}
-
-.shape--3 {
-  width: 150px;
-  height: 150px;
-  top: 30%;
-  right: 20%;
-  border-color: rgba(var(--accent-rgb), 0.1);
-  animation: float 7s ease-in-out infinite 0.5s;
-}
-
-.shape--4 {
-  width: 300px;
-  top: 25%;
-  left: 10%;
-  transform: rotate(-30deg);
-}
-
-.shape--5 {
-  width: 200px;
-  bottom: 35%;
-  right: 15%;
-  transform: rotate(45deg);
-}
-
-.shape--6 {
-  width: 80px;
-  height: 80px;
-  bottom: 25%;
-  right: 35%;
-  background: rgba(var(--accent-rgb), 0.05);
-  animation: float 6s ease-in-out infinite 2s;
-}
-
-.shape--7 {
-  width: 350px;
-  top: 60%;
-  left: 30%;
-  transform: rotate(15deg);
+  inset: 0;
+  background-size: 56px 56px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Hero content */
 .hero__container {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   gap: var(--space-4xl);
@@ -107,13 +64,23 @@
   max-width: 780px;
 }
 
+.hero__label {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-light);
+  margin-bottom: var(--space-md);
+}
+
 .hero__title {
   font-size: var(--font-size-5xl);
-  font-weight: 900;
+  font-weight: 800;
   color: var(--white);
-  line-height: 1.1;
+  line-height: 1.15;
   margin-bottom: var(--space-xl);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .hero__highlight {
@@ -135,6 +102,44 @@
   display: flex;
   gap: var(--space-lg);
   flex-wrap: wrap;
+}
+
+/* Hero specific button overrides (removes soft glow/AI blur) */
+.hero .btn-accent {
+  background: var(--accent); /* Solid Teal */
+  border: 2px solid var(--accent-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* tight, subtle drop shadow */
+}
+
+.hero .btn-accent::after {
+  display: none; /* remove hover shine overlay */
+}
+
+.hero .btn-accent:hover {
+  transform: translateY(-2px);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hero .btn-outline {
+  border: 2px solid var(--white);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+.hero .btn-outline::after {
+  display: none; /* remove hover shine overlay */
+}
+
+.hero .btn-outline:hover {
+  background: var(--white);
+  color: var(--primary-dark);
+  border-color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: none;
 }
 
 /* Floating stats badges */
