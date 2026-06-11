@@ -19,14 +19,16 @@
 .hero__bg-image {
   position: absolute;
   inset: 0;
-  background-image: url('../../assets/casablanca_skyline.png');
+  background: 
+    linear-gradient(to right, rgba(7, 17, 36, 0.95) 0%, rgba(7, 17, 36, 0.5) 100%),
+    url('../../assets/hero-casablanca.png');
   background-size: cover;
-  background-position: center;
+  background-position: center right;
   background-repeat: no-repeat;
-  opacity: 0.15; /* 85% dark mask */
   z-index: 0;
   pointer-events: none;
-  filter: grayscale(20%) brightness(0.9);
+  filter: blur(2px);
+  transform: scale(1.02); /* prevent edge blur artifacts */
 }
 
 .hero__mesh-overlay {
@@ -84,15 +86,16 @@
 }
 
 .hero__highlight {
-  background: linear-gradient(135deg, var(--accent-light), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #1F6FB2; /* Professional Merit Blue */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
 }
 
 .hero__subtitle {
   font-size: var(--font-size-lg);
-  color: rgba(255, 255, 255, 0.75);
+  color: #E5E7EB; /* Very light silver-gray */
   line-height: 1.7;
   margin-bottom: var(--space-2xl);
   max-width: 620px;
@@ -106,8 +109,9 @@
 
 /* Hero specific button overrides (removes soft glow/AI blur) */
 .hero .btn-accent {
-  background: var(--accent); /* Solid Teal */
-  border: 2px solid var(--accent-dark);
+  background: #1F6FB2; /* Professional Merit Blue */
+  border: 2px solid #1F6FB2;
+  color: var(--white);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* tight, subtle drop shadow */
 }
 
@@ -117,8 +121,8 @@
 
 .hero .btn-accent:hover {
   transform: translateY(-2px);
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
+  background: #145387; /* slightly darker Merit Blue */
+  border-color: #145387;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -1129,17 +1133,17 @@
   transform: rotate(5deg) scale(1.08);
 }
 
-/* 4. Request a Demo CTA Glow */
+/* 4. Request a Demo CTA Glow (Now solid and clean) */
 .btn-accent-glow {
   background: linear-gradient(135deg, var(--accent-dark), var(--accent));
   color: var(--white);
-  box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.4), 0 0 20px rgba(var(--accent-rgb), 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   transition: all var(--transition-base);
 }
 
 .btn-accent-glow:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(var(--accent-rgb), 0.5), 0 0 30px rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: var(--white);
 }
 
@@ -1158,11 +1162,11 @@
   }
 }
 
-/* 6. Footer CTA primary button shadow consistency */
+/* 6. Footer CTA primary button shadow consistency (Solid & Clean) */
 .cta .btn-accent {
-  box-shadow: 0 4px 12px rgba(0, 172, 238, 0.35) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
 }
 
 .cta .btn-accent:hover {
-  box-shadow: 0 6px 16px rgba(0, 172, 238, 0.45) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }

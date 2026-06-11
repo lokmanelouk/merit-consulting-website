@@ -27,6 +27,7 @@ import {
 } from 'react-icons/fi';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
 import casablancaSkyline from '../../assets/casablanca_skyline.png';
+import heroCasablanca from '../../assets/hero-casablanca.png';
 import './Home.css';
 
 /* ── Data ─────────────────────────────────────────────────── */
@@ -271,7 +272,7 @@ export default function Home() {
             <ScrollReveal className="about__visual" delay={0.2} direction="left">
               <div className="about__image-wrapper">
                 <img 
-                  src={casablancaSkyline} 
+                  src={heroCasablanca} 
                   alt="Casablanca Finance City skyline representing Business in Morocco" 
                   className="about__image"
                   loading="lazy"
