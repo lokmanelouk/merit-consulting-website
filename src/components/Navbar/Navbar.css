@@ -1,0 +1,210 @@
+/* =============================================
+   Navbar
+   ============================================= */
+
+/* ── Bar ── */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  z-index: 1000;
+  background: transparent;
+  transition: background var(--transition-base),
+              box-shadow var(--transition-base),
+              height var(--transition-base),
+              backdrop-filter var(--transition-base);
+}
+
+.navbar--scrolled {
+  height: 68px; /* Slightly reduced height */
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(10, 36, 99, 0.05);
+}
+
+/* ── Container ── */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* ── Logo ── */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* ── Desktop links ── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  list-style: none;
+}
+
+.navbar-link {
+  position: relative;
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--text);
+  transition: color var(--transition-base);
+  border-radius: var(--radius-md);
+}
+
+/* On transparent navbar */
+.navbar:not(.navbar--scrolled) .navbar-link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar:not(.navbar--scrolled) .navbar-link:hover,
+.navbar:not(.navbar--scrolled) .navbar-link--active {
+  color: var(--white);
+}
+
+/* Active indicator underline */
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+}
+
+.navbar-link:hover::after,
+.navbar-link--active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+.navbar-link:hover {
+  color: var(--primary);
+}
+
+.navbar-link--active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ── CTA Button ── */
+.navbar-cta {
+  margin-left: var(--space-sm);
+}
+
+/* ── Hamburger toggle (hidden on desktop) ── */
+.navbar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  color: var(--text);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.navbar:not(.navbar--scrolled) .navbar-toggle {
+  color: var(--white);
+}
+
+.navbar-toggle:hover {
+  background: rgba(var(--primary-rgb), 0.06);
+}
+
+/* ── Overlay ── */
+.navbar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(var(--dark-rgb), 0.45);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.navbar-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Drawer ── */
+.navbar-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 85vw;
+  height: 100vh;
+  z-index: 1001;
+  background: var(--white);
+  box-shadow: var(--shadow-2xl);
+  padding: calc(var(--navbar-height) + var(--space-lg)) var(--space-xl) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  transform: translateX(100%);
+  transition: transform var(--transition-slow);
+}
+
+.navbar-drawer--open {
+  transform: translateX(0);
+}
+
+.navbar-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  list-style: none;
+}
+
+.navbar-drawer-link {
+  display: block;
+  padding: 12px 16px;
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--text);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast),
+              color var(--transition-fast);
+}
+
+.navbar-drawer-link:hover {
+  background: var(--gray-light);
+  color: var(--primary);
+}
+
+.navbar-drawer-link--active {
+  color: var(--accent-dark);
+  font-weight: 600;
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.navbar-drawer-cta {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}

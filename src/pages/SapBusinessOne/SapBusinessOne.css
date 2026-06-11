@@ -1,0 +1,904 @@
+/* ============================================================
+   SAP Business One Page Styles
+   ============================================================ */
+
+:root {
+  --primary: #0A2463;
+  --primary-light: #1E56A0;
+  --accent: #00B4D8;
+  --accent-dark: #0096C7;
+  --dark: #0D1B2A;
+  --light: #F8F9FA;
+  --gray: #E9ECEF;
+  --text: #2B2D42;
+  --text-light: #6C757D;
+  --white: #FFFFFF;
+}
+
+.sap-page {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.sap-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sap-section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.sap-section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.sap-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* ============================================================
+   1. Hero Banner
+   ============================================================ */
+
+.sap-hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0 2rem 0;
+  overflow: hidden;
+}
+
+.sap-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  z-index: 0;
+}
+
+.sap-hero__pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(30, 86, 160, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  background-size: 100% 100%;
+}
+
+.sap-hero__container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.sap-hero__left {
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sap-hero__badge-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.sap-hero__badge-label svg {
+  font-size: 0.95rem;
+}
+
+.sap-hero__title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  animation: sapFadeUp 0.8s ease-out both;
+}
+
+.sap-hero__subtitle {
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  font-weight: 400;
+  animation: sapFadeUp 0.8s ease-out 0.1s both;
+}
+
+@keyframes sapFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   2. What is SAP Business One
+   ============================================================ */
+
+.sap-about {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.sap-about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.sap-about__text {
+  padding-right: 20px;
+}
+
+.sap-about__description {
+  font-size: 1.05rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.sap-about__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 12px;
+  font-size: 1rem;
+  transition: gap 0.3s ease;
+}
+
+.sap-about__cta:hover {
+  gap: 14px;
+}
+
+.sap-about__card {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 36px;
+  border: 1px solid var(--gray);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.sap-about__card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gray);
+}
+
+.sap-about__card-header svg {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.sap-about__card-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.sap-about__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sap-about__highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.sap-about__check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(0, 180, 216, 0.1);
+  color: var(--accent);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+
+
+/* ============================================================
+   4. Benefits for SMEs (Advantages Side-by-Side)
+   ============================================================ */
+
+.sap-benefits {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.sap-benefits__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sap-benefits__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sap-benefits__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.sap-benefit-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.sap-benefit-item__icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 180, 216, 0.08);
+  color: var(--accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 180, 216, 0.12);
+}
+
+.sap-benefit-item__content {
+  flex: 1;
+}
+
+.sap-benefit-item__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.sap-benefit-item__desc {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* --- Executive Cockpit Dashboard Mockup --- */
+.sap-dashboard-mockup {
+  background: var(--white);
+  border: 1px solid rgba(10, 36, 99, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(10, 36, 99, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  backdrop-filter: blur(12px);
+}
+
+.sap-dashboard-mockup__header {
+  background: var(--dark);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sap-dashboard-mockup__dots {
+  display: flex;
+  gap: 6px;
+}
+
+.sap-dashboard-mockup__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sap-dashboard-mockup__dot--red { background: #FF5F56; }
+.sap-dashboard-mockup__dot--yellow { background: #FFBD2E; }
+.sap-dashboard-mockup__dot--green { background: #27C93F; }
+
+.sap-dashboard-mockup__title-bar {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.sap-dashboard-mockup__status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: rgba(39, 201, 63, 0.15);
+  color: #27C93F;
+  padding: 3px 8px;
+  border-radius: 50px;
+}
+
+.sap-dashboard-mockup__body {
+  padding: 24px;
+  background: var(--light);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sap-dashboard-mockup__kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.sap-dashboard-mockup__kpi {
+  background: var(--white);
+  border: 1px solid rgba(10, 36, 99, 0.05);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.sap-dashboard-mockup__kpi-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.sap-dashboard-mockup__kpi-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark);
+}
+
+.sap-dashboard-mockup__kpi-trend {
+  font-size: 0.65rem;
+  font-weight: 700;
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.sap-dashboard-mockup__kpi-trend--up {
+  color: #27C93F;
+  background: rgba(39, 201, 63, 0.08);
+}
+
+.sap-dashboard-mockup__kpi-trend--neutral {
+  color: var(--text-light);
+  background: rgba(108, 117, 125, 0.08);
+}
+
+.sap-dashboard-mockup__kpi-trend--down {
+  color: #FF5F56;
+  background: rgba(255, 95, 86, 0.08);
+}
+
+.sap-dashboard-mockup__content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+}
+
+.sap-dashboard-mockup__chart-panel,
+.sap-dashboard-mockup__list-panel {
+  background: var(--white);
+  border: 1px solid rgba(10, 36, 99, 0.05);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.sap-dashboard-mockup__panel-header {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 6px;
+}
+
+.sap-dashboard-mockup__chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 90px;
+  padding-top: 10px;
+}
+
+.sap-dashboard-mockup__bar {
+  width: 14px;
+  background: rgba(0, 180, 216, 0.25);
+  border-radius: 3px 3px 0 0;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.sap-dashboard-mockup__bar--active {
+  background: var(--primary);
+}
+
+.sap-dashboard-mockup__bar span {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.sap-dashboard-mockup__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sap-dashboard-mockup__list-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sap-dashboard-mockup__item-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.sap-dashboard-mockup__list-item:nth-child(2) .sap-dashboard-mockup__item-indicator {
+  background: var(--primary-light);
+}
+
+.sap-dashboard-mockup__list-item:nth-child(3) .sap-dashboard-mockup__item-indicator {
+  background: #27C93F;
+}
+
+.sap-dashboard-mockup__item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.sap-dashboard-mockup__item-title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.sap-dashboard-mockup__item-time {
+  font-size: 0.58rem;
+  color: var(--text-light);
+  margin-top: 1px;
+}
+
+/* ============================================================
+   5. Modules Section
+   ============================================================ */
+
+.sap-modules {
+  padding: 100px 0;
+  background: var(--light);
+}
+
+.sap-modules__header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.sap-modules__header .sap-section-subtitle {
+  margin: 0;
+}
+
+.sap-modules__layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.sap-modules__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sap-modules__tab {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  border: 1px solid var(--gray);
+  border-radius: 12px;
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  text-align: left;
+}
+
+.sap-modules__tab:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.sap-modules__tab--active {
+  background: var(--dark);
+  color: var(--white);
+  border-color: var(--dark);
+  box-shadow: 0 6px 24px rgba(13, 27, 42, 0.2);
+}
+
+.sap-modules__tab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.sap-modules__tab--active .sap-modules__tab-icon {
+  color: var(--accent);
+}
+
+.sap-modules__tab-label {
+  font-weight: 600;
+}
+
+.sap-modules__detail {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 44px;
+  border: 1px solid var(--gray);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  animation: sapFadeIn 0.35s ease;
+}
+
+@keyframes sapFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sap-modules__detail-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.sap-modules__detail-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: color-mix(in srgb, var(--mod-color, var(--accent)) 10%, transparent);
+  color: var(--mod-color, var(--accent));
+}
+
+.sap-modules__detail-title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.sap-modules__detail-desc {
+  font-size: 1.02rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.sap-modules__detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.sap-modules__detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.sap-modules__detail-item svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   6. Why Choose Merit
+   ============================================================ */
+
+.sap-why-merit {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.sap-why-merit__header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.sap-why-merit__header .sap-section-subtitle {
+  margin: 0;
+}
+
+.sap-why-merit__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sap-differentiator {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--light);
+  border: 1px solid var(--gray);
+  border-radius: 14px;
+  padding: 28px 26px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sap-differentiator:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.sap-differentiator__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.sap-differentiator__text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   7. CTA Section
+   ============================================================ */
+
+.sap-cta {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sap-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(0, 180, 216, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+.sap-cta__content {
+  position: relative;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.sap-cta__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.sap-cta__desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.sap-cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .sap-benefits__grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .sap-why-merit__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sap-modules__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sap-modules__tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .sap-modules__tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .sap-section-title {
+    font-size: 1.75rem;
+  }
+
+  .sap-hero {
+    padding: 6rem 0 2rem 0;
+  }
+
+  .sap-hero__title {
+    font-size: 2.2rem;
+  }
+
+  .sap-hero__subtitle {
+    font-size: 1.05rem;
+  }
+
+  .sap-about__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .sap-about__text {
+    padding-right: 0;
+  }
+
+  .sap-modules__detail-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sap-modules__detail {
+    padding: 28px;
+  }
+
+  .sap-why-merit__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sap-cta__title {
+    font-size: 1.75rem;
+  }
+
+  .sap-cta__actions {
+    flex-direction: column;
+  }
+
+  .sap-about,
+  .sap-benefits,
+  .sap-modules,
+  .sap-why-merit,
+  .sap-cta {
+    padding: 64px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sap-hero__title {
+    font-size: 1.8rem;
+  }
+
+  .sap-section-title {
+    font-size: 1.5rem;
+  }
+
+  .sap-differentiator {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+
+  .sap-modules__tab {
+    padding: 12px 18px;
+    font-size: 0.88rem;
+  }
+
+  .sap-dashboard-mockup__content {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sap-dashboard-mockup__kpis {
+    grid-template-columns: 1fr;
+  }
+}
