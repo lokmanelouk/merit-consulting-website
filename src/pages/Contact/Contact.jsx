@@ -16,37 +16,37 @@ import ScrollReveal from '../../components/ScrollReveal/ScrollReveal'
 import './Contact.css'
 
 const subjectOptions = [
-  { value: '', label: 'Select a subject' },
+  { value: '', label: 'Sélectionnez un sujet' },
   { value: 'sap-business-one', label: 'SAP Business One' },
-  { value: 'erp-consulting', label: 'ERP Consulting' },
-  { value: 'software-development', label: 'Software Development' },
-  { value: 'technical-support', label: 'Technical Support' },
-  { value: 'training', label: 'Training' },
-  { value: 'other', label: 'Other' },
+  { value: 'erp-consulting', label: 'Conseil ERP' },
+  { value: 'software-development', label: 'Développement Logiciel' },
+  { value: 'technical-support', label: 'Support Technique' },
+  { value: 'training', label: 'Formation' },
+  { value: 'other', label: 'Autre' },
 ]
 
 const contactDetails = [
   {
     icon: <FiMapPin />,
-    label: 'Address',
-    value: 'Casablanca, Morocco',
+    label: 'Adresse',
+    value: '123 Boulevard Mohammed V, Casablanca, Maroc',
   },
   {
     icon: <FiPhone />,
-    label: 'Phone',
-    value: '+212 5XX-XXXXXX',
-    href: 'tel:+2125XXXXXXXX',
+    label: 'Téléphone',
+    value: '+212 5 00 00 00 00',
+    href: 'tel:+212500000000',
   },
   {
     icon: <FiMail />,
-    label: 'Email',
+    label: 'E-mail',
     value: 'contact@meritconsulting.ma',
     href: 'mailto:contact@meritconsulting.ma',
   },
   {
     icon: <FiClock />,
-    label: 'Working Hours',
-    value: 'Monday - Friday: 9:00 AM - 6:00 PM',
+    label: 'Heures de travail',
+    value: 'Lundi - Vendredi : 9h00 - 18h00',
   },
 ]
 
@@ -73,6 +73,14 @@ function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
+    document.title = "Contactez Nos Experts | Merit Consulting Maroc";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Contactez l'équipe de Merit Consulting Maroc pour planifier une démonstration de SAP Business One ou discuter de votre projet de transformation digitale.");
+    }
+  }, []);
+
+  useEffect(() => {
     const queryParams = new URLSearchParams(location.search)
     const subjectParam = queryParams.get('subject')
     if (subjectParam && subjectOptions.some(opt => opt.value === subjectParam)) {
@@ -84,23 +92,23 @@ function Contact() {
     const newErrors = {}
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required'
+      newErrors.fullName = 'Le nom complet est obligatoire'
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required'
+      newErrors.email = "L'adresse e-mail est obligatoire"
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
+      newErrors.email = "Veuillez saisir une adresse e-mail valide"
     }
 
     if (formData.phone && !/^[+]?[\d\s()-]{7,}$/.test(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number'
+      newErrors.phone = "Veuillez saisir un numéro de téléphone valide"
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required'
+      newErrors.message = 'Le message est obligatoire'
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters'
+      newErrors.message = 'Le message doit contenir au moins 10 caractères'
     }
 
     setErrors(newErrors)
@@ -142,9 +150,9 @@ function Contact() {
         <div className="contact-hero__bg-pattern" />
         <div className="contact-hero__container container">
           <div className="contact-hero__left">
-            <h1 className="contact-hero__title">Contact Our Experts</h1>
+            <h1 className="contact-hero__title">Contactez Nos Experts</h1>
             <p className="contact-hero__subtitle">
-              Get in touch with our team to discuss your project and discover how we can accelerate your digital transformation.
+              Discutez avec nos consultants pour évaluer votre projet et découvrir comment nous pouvons accélérer votre transformation digitale.
             </p>
           </div>
         </div>
@@ -161,22 +169,21 @@ function Contact() {
                   <div className="contact-form__success-icon">
                     <FiCheckCircle />
                   </div>
-                  <h3 className="contact-form__success-title">Message Sent!</h3>
+                  <h3 className="contact-form__success-title">Message Envoyé !</h3>
                   <p className="contact-form__success-text">
-                    Thank you for reaching out. We&rsquo;ll get back to you
-                    within 24 hours.
+                    Merci de nous avoir contactés. Notre équipe vous répondra sous 24 heures.
                   </p>
                   <button
                     className="btn btn-primary"
                     onClick={handleReset}
                     type="button"
                   >
-                    Send Another Message
+                    Envoyer un autre message
                   </button>
                 </div>
               ) : (
                 <>
-                  <h2 className="contact-form__title">Send Us a Message</h2>
+                  <h2 className="contact-form__title">Envoyez-nous un Message</h2>
                   <form
                     className="contact-form"
                     onSubmit={handleSubmit}
@@ -187,7 +194,7 @@ function Contact() {
                       className={`form-group ${errors.fullName ? 'form-group--error' : ''}`}
                     >
                       <label htmlFor="fullName" className="form-label">
-                        Full Name <span className="form-required">*</span>
+                        Nom Complet <span className="form-required">*</span>
                       </label>
                       <input
                         id="fullName"
@@ -209,14 +216,14 @@ function Contact() {
                         className={`form-group ${errors.email ? 'form-group--error' : ''}`}
                       >
                         <label htmlFor="email" className="form-label">
-                          Email Address <span className="form-required">*</span>
+                          Adresse E-mail <span className="form-required">*</span>
                         </label>
                         <input
                           id="email"
                           name="email"
                           type="email"
                           className="form-input"
-                          placeholder="john@example.com"
+                          placeholder="votre@email.com"
                           value={formData.email}
                           onChange={handleChange}
                         />
@@ -229,14 +236,14 @@ function Contact() {
                         className={`form-group ${errors.phone ? 'form-group--error' : ''}`}
                       >
                         <label htmlFor="phone" className="form-label">
-                          Phone Number
+                          Numéro de Téléphone
                         </label>
                         <input
                           id="phone"
                           name="phone"
                           type="tel"
                           className="form-input"
-                          placeholder="+212 6XX-XXXXXX"
+                          placeholder="+212 6 00 00 00 00"
                           value={formData.phone}
                           onChange={handleChange}
                         />
@@ -250,14 +257,14 @@ function Contact() {
                     <div className="form-row">
                       <div className="form-group">
                         <label htmlFor="company" className="form-label">
-                          Company Name
+                          Nom de l'Entreprise
                         </label>
                         <input
                           id="company"
                           name="company"
                           type="text"
                           className="form-input"
-                          placeholder="Your Company"
+                          placeholder="Votre Entreprise"
                           value={formData.company}
                           onChange={handleChange}
                         />
@@ -265,7 +272,7 @@ function Contact() {
 
                       <div className="form-group">
                         <label htmlFor="subject" className="form-label">
-                          Subject
+                          Sujet
                         </label>
                         <select
                           id="subject"
@@ -294,7 +301,7 @@ function Contact() {
                         id="message"
                         name="message"
                         className="form-input form-textarea"
-                        placeholder="Tell us about your project or inquiry..."
+                        placeholder="Parlez-nous de votre projet ou de votre besoin..."
                         rows="6"
                         value={formData.message}
                         onChange={handleChange}
@@ -313,12 +320,12 @@ function Contact() {
                       {isSubmitting ? (
                         <>
                           <span className="contact-form__spinner" />
-                          Sending...
+                          Envoi en cours...
                         </>
                       ) : (
                         <>
                           <FiSend />
-                          Send Message
+                          Envoyer le Message
                         </>
                       )}
                     </button>
@@ -331,9 +338,9 @@ function Contact() {
           {/* Right Column — Contact Info Cards */}
           <ScrollReveal className="contact-info-reveal" direction="left" delay={0.15}>
             <div className="contact-info">
-              <h3 className="contact-info__heading">Contact Information</h3>
+              <h3 className="contact-info__heading">Informations de Contact</h3>
               <p className="contact-info__desc">
-                Have questions? Reach out to us through any of the channels below.
+                Des questions ? Contactez-nous par l'un des moyens ci-dessous.
               </p>
 
               <div className="contact-info__cards">
@@ -364,7 +371,7 @@ function Contact() {
               {/* Social Links & Promise */}
               <div className="contact-info__footer-card">
                 <div className="contact-info__social">
-                  <h4 className="contact-info__social-label">Follow Us</h4>
+                  <h4 className="contact-info__social-label">Suivez-nous</h4>
                   <div className="contact-info__social-links">
                     {socialLinks.map((s) => (
                       <a
@@ -382,7 +389,7 @@ function Contact() {
                 </div>
                 <div className="contact-info__promise">
                   <FiCheckCircle className="contact-info__promise-icon" />
-                  <span>We typically respond within 24 hours</span>
+                  <span>Réponse sous 24 heures en moyenne</span>
                 </div>
               </div>
             </div>
@@ -401,7 +408,7 @@ function Contact() {
             allowFullScreen="" 
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
-            title="Merit Consulting Casablanca Office Map"
+            title="Plan d'accès Merit Consulting Casablanca"
           />
         </div>
       </section>

@@ -12,20 +12,20 @@ import Logo from '../Logo/Logo';
 import './Footer.css';
 
 const QUICK_LINKS = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
+  { path: '/', label: 'Accueil' },
+  { path: '/about', label: 'À Propos' },
   { path: '/services', label: 'Services' },
   { path: '/sap-business-one', label: 'SAP Business One' },
   { path: '/contact', label: 'Contact' },
 ];
 
 const SERVICES = [
-  'SAP Implementation',
-  'ERP Consulting',
-  'Software Development',
-  'Custom Integrations',
-  'Technical Support',
-  'User Training',
+  'Implémentation SAP',
+  'Conseil ERP',
+  'Développement Logiciel',
+  'Intégrations sur Mesure',
+  'Support Technique',
+  'Formation Utilisateurs',
 ];
 
 const SOCIALS = [
@@ -51,8 +51,8 @@ export default function Footer() {
           <Logo isDarkBg={true} className="footer-logo" />
 
           <p className="footer-description">
-            Empowering Moroccan enterprises with world-class SAP solutions,
-            ERP consulting, and digital transformation services since 2010.
+            Accompagnement des entreprises marocaines avec des solutions SAP de classe mondiale,
+            du conseil ERP et des services de transformation digitale depuis 2010.
           </p>
 
           <div className="footer-socials">
@@ -73,7 +73,7 @@ export default function Footer() {
 
         {/* Column 2 – Quick Links */}
         <div className="footer-col">
-          <h4 className="footer-heading">Quick Links</h4>
+          <h4 className="footer-heading">Liens Rapides</h4>
           <ul className="footer-list">
             {QUICK_LINKS.map((link) => (
               <li key={link.path}>
@@ -87,7 +87,7 @@ export default function Footer() {
 
         {/* Column 3 – Services */}
         <div className="footer-col">
-          <h4 className="footer-heading">Services</h4>
+          <h4 className="footer-heading">Nos Services</h4>
           <ul className="footer-list">
             {SERVICES.map((service) => (
               <li key={service}>
@@ -101,11 +101,11 @@ export default function Footer() {
 
         {/* Column 4 – Contact */}
         <div className="footer-col">
-          <h4 className="footer-heading">Contact Us</h4>
+          <h4 className="footer-heading">Contactez-Nous</h4>
           <ul className="footer-list footer-contact-list">
             <li className="footer-contact-item">
               <FiMapPin className="footer-contact-icon" />
-              <span>123 Boulevard Mohammed V,<br />Casablanca, Morocco</span>
+              <span>123 Boulevard Mohammed V,<br />Casablanca, Maroc</span>
             </li>
             <li className="footer-contact-item">
               <FiPhone className="footer-contact-icon" />
@@ -127,16 +127,16 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="footer-bottom-inner container">
           <p className="footer-copyright">
-            &copy; {year} Merit Consulting Maroc. All rights reserved.
+            &copy; {year} Merit Consulting Maroc. Tous droits réservés.
           </p>
 
           <button
             className="footer-back-to-top"
             onClick={scrollToTop}
-            aria-label="Back to top"
+            aria-label="Retour en haut"
           >
             <FiArrowUp />
-            <span>Top</span>
+            <span>Haut</span>
           </button>
         </div>
       </div>

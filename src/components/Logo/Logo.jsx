@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import chevronIcon from '../../assets/chevron.png';
 import './Logo.css';
 
-const Logo = ({ className = "", isDarkBg = false }) => {
+const Logo = ({ className = "", isDarkBg = false, ...props }) => {
   return (
     <Link
       to="/"
       className={`flex flex-col items-start shrink-0 leading-tight group ${className}`}
+      {...props}
     >
       <div className="flex items-center uppercase tracking-tighter">
         <span

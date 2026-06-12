@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   FiDollarSign,
@@ -36,128 +36,151 @@ import './SapBusinessOne.css';
 const benefits = [
   {
     icon: <FiGrid />,
-    title: 'Unified Business Management',
+    title: 'Gestion Unifiée de l\'Entreprise',
     description:
-      'Eliminate data silos and manage all your operations from a single platform. Real-time visibility across departments.',
+      'Centralisez toutes vos opérations sur une plateforme unique et éliminez les silos de données. Bénéficiez d\'une visibilité en temps réel sur tous les départements.',
   },
   {
     icon: <FiTrendingUp />,
-    title: 'Scalable Growth',
+    title: 'Croissance Évolutive',
     description:
-      'Start with what you need and add functionality as your business grows. SAP Business One scales with you.',
+      'Commencez avec les fonctionnalités essentielles et ajoutez-en au fil de votre développement. SAP Business One évolue au rythme de votre croissance.',
   },
   {
     icon: <FiZap />,
-    title: 'Rapid ROI',
+    title: 'Retour sur Investissement Rapide',
     description:
-      'Quick implementation timelines and immediate operational improvements deliver fast return on investment.',
+      'Des délais d\'implémentation maîtrisés et des gains d\'efficacité immédiats garantissent un retour sur investissement rapide.',
   },
   {
     icon: <FiCloud />,
-    title: 'Cloud or On-Premise',
+    title: 'Cloud ou Sur Site (On-Premise)',
     description:
-      'Choose the deployment model that fits your needs. Available as cloud, on-premise, or hybrid solution.',
+      'Choisissez le mode d\'hébergement adapté à votre infrastructure. Disponible en Cloud, Sur Site (On-Premise) ou en version Hybride.',
   },
 ];
 
 const modules = [
   {
-    id: 'sales',
-    title: 'Sales',
-    icon: <FiTarget />,
-    color: '#00B4D8',
-    details: [
-      'Sales orders & quotations',
-      'Delivery management',
-      'Invoicing & billing',
-      'Sales reports & analytics',
-      'Pricing & discount management',
-    ],
-    description:
-      'Streamline your entire sales cycle from quotation to order fulfillment. Track opportunities, manage pricing, and gain full visibility into your sales pipeline.',
-  },
-  {
-    id: 'purchasing',
-    title: 'Purchasing',
-    icon: <FiShoppingCart />,
-    color: '#0096C7',
-    details: [
-      'Purchase orders & approvals',
-      'Goods receipt processing',
-      'Accounts payable management',
-      'Supplier evaluation',
-      'Procurement analytics',
-    ],
-    description:
-      'Optimize your procurement process with automated purchase orders, supplier management, and cost analysis tools that reduce expenses and improve efficiency.',
-  },
-  {
-    id: 'inventory',
-    title: 'Inventory',
-    icon: <FiPackage />,
-    color: '#1E56A0',
-    details: [
-      'Multi-warehouse management',
-      'Real-time stock tracking',
-      'Serial & batch management',
-      'Inventory valuation',
-      'Pick, pack & ship',
-    ],
-    description:
-      'Gain complete control over your inventory with real-time tracking across multiple warehouses. Manage serial numbers, batch tracking, and optimize stock levels.',
-  },
-  {
     id: 'accounting',
-    title: 'Accounting',
+    title: 'Gestion Financière',
     icon: <FiBookOpen />,
     color: '#0A2463',
     details: [
-      'General ledger management',
-      'Journal entries & postings',
-      'Financial reporting & statements',
-      'Multi-currency support',
-      'Tax compliance & management',
+      'Comptabilité générale & analytique',
+      'Écritures de journal & rapprochements',
+      'Rapports financiers & bilans en temps réel',
+      'Gestion multi-devises et multi-sociétés',
+      'Conformité fiscale & déclarations locales',
     ],
     description:
-      'Maintain accurate financial records with a robust accounting engine. Automate journal entries, generate financial statements, and ensure regulatory compliance.',
+      'Optimisez votre gestion financière avec un moteur comptable puissant et automatisé. Simplifiez les écritures de journal, éditez des bilans précis et assurez la conformité fiscale marocaine.',
   },
   {
-    id: 'crm',
-    title: 'CRM',
-    icon: <FiHeadphones />,
-    color: '#0D1B2A',
+    id: 'sales-crm',
+    title: 'Ventes & CRM',
+    icon: <FiTarget />,
+    color: '#00B4D8',
     details: [
-      'Customer management & profiles',
-      'Service call tracking',
-      'Sales pipeline management',
-      'Activity & interaction logs',
-      'Customer satisfaction analytics',
+      'Gestion des opportunités et des devis',
+      'Commandes clients & livraisons',
+      'Suivi du cycle de vie client',
+      'Facturation & encaissements',
+      'Analyses de la performance commerciale',
     ],
     description:
-      'Build stronger customer relationships with integrated CRM capabilities. Track interactions, manage service requests, and nurture your sales pipeline effectively.',
+      'Pilotez l\'ensemble du cycle de vente, du premier contact à la facturation. Suivez vos opportunités commerciales, gérez vos forces de vente et améliorez la relation client grâce à un CRM intégré.',
+  },
+  {
+    id: 'purchasing',
+    title: 'Achats & Approvisionnements',
+    icon: <FiShoppingCart />,
+    color: '#0096C7',
+    details: [
+      'Demandes d\'achats & validations automatisées',
+      'Bons de commande & réceptions de marchandises',
+      'Factures fournisseurs & comptes créditeurs',
+      'Suivi et évaluation des fournisseurs',
+      'Analyses des coûts d\'achat et des marges',
+    ],
+    description:
+      'Maîtrisez et optimisez vos processus d\'achat. Automatisez les cycles d\'approvisionnement, gérez vos contrats fournisseurs et analysez précisément vos dépenses pour maximiser vos marges.',
+  },
+  {
+    id: 'inventory',
+    title: 'Stocks & Distribution',
+    icon: <FiPackage />,
+    color: '#1E56A0',
+    details: [
+      'Gestion multi-dépôts & transferts de stock',
+      'Suivi en temps réel des niveaux de stock',
+      'Traçabilité par numéro de lot et de série',
+      'Inventaires physiques & valorisation des stocks',
+      'Préparation des commandes & expédition',
+    ],
+    description:
+      'Obtenez une visibilité complète sur vos stocks dans tous vos dépôts. Suivez vos produits en temps réel, optimisez vos niveaux de stock pour éviter les ruptures et gérez la traçabilité par lots.',
+  },
+  {
+    id: 'production',
+    title: 'Production & MRP',
+    icon: <FiSettings />,
+    color: '#3A86C8',
+    details: [
+      'Nomenclatures (BOM) multi-niveaux',
+      'Ordres de fabrication & ordres de travail',
+      'Planification des besoins en composants (MRP)',
+      'Gestion des capacités de production',
+      'Calcul du coût de revient de fabrication',
+    ],
+    description:
+      'Planifiez et contrôlez vos processus de fabrication. Utilisez le module MRP pour anticiper les besoins en matières premières, optimiser l\'utilisation des ressources et maîtriser vos coûts de revient.',
+  },
+  {
+    id: 'bi',
+    title: 'Informatique Décisionnelle',
+    icon: <FiPieChart />,
+    color: '#0D1B2A',
+    details: [
+      'Tableaux de bord interactifs & KPI en direct',
+      'Reporting financier & opérationnel avancé',
+      'Analyses multidimensionnelles (cubes OLAP)',
+      'Génération automatique de rapports Crystal Reports',
+      'Recherche d\'information intuitive avec SAP Enterprise Search',
+    ],
+    description:
+      'Prenez des décisions éclairées basées sur des données fiables et actualisées. Exploitez la puissance de SAP HANA pour générer des analyses prédictives et des indicateurs de performance clés en temps réel.',
   },
 ];
 
 const differentiators = [
-  { icon: <FiClock />, text: '24 years of SAP experience' },
-  { icon: <FiAward />, text: 'Certified SAP Business One consultants' },
-  { icon: <FiCheckCircle />, text: '80+ successful implementations' },
-  { icon: <FiGlobe />, text: 'Local expertise with global standards' },
-  { icon: <FiLayers />, text: 'End-to-end project management' },
-  { icon: <FiLifeBuoy />, text: 'Ongoing support and training' },
+  { icon: <FiClock />, text: '24 ans d\'expérience SAP' },
+  { icon: <FiAward />, text: 'Consultants certifiés SAP Business One' },
+  { icon: <FiCheckCircle />, text: 'Plus de 80 implémentations réussies' },
+  { icon: <FiGlobe />, text: 'Expertise locale aux standards internationaux' },
+  { icon: <FiLayers />, text: 'Gestion de projet de bout en bout' },
+  { icon: <FiLifeBuoy />, text: 'Support continu et formation des équipes' },
 ];
 
 const featureHighlights = [
-  'Integrated ERP solution',
-  'Real-time analytics & reporting',
-  'Mobile access on any device',
-  'Cloud & on-premise deployment',
-  'Industry-specific add-ons',
-  'Scalable architecture',
+  'Solution ERP intégrée et complète',
+  'Analyses et rapports en temps réel',
+  'Accès mobile sur tout type d\'appareil',
+  'Déploiement Cloud et sur site (On-Premise)',
+  'Add-ons spécifiques par secteur d\'activité',
+  'Architecture évolutive et sécurisée',
 ];
 
 export default function SapBusinessOne() {
-  const [activeModule, setActiveModule] = useState('sales');
+  const [activeModule, setActiveModule] = useState('accounting');
+
+  useEffect(() => {
+    document.title = "SAP Business One | Merit Consulting Maroc";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Explorez la solution ERP complète SAP Business One pour PME en croissance : finance, ventes, achats, stocks, production et informatique décisionnelle.");
+    }
+  }, []);
 
   const currentModule = modules.find((m) => m.id === activeModule);
 
@@ -171,11 +194,11 @@ export default function SapBusinessOne() {
         <div className="sap-hero__container container">
           <div className="sap-hero__left">
             <span className="sap-hero__badge-label">
-              <FiShield /> Certified SAP Partner
+              <FiShield /> Partenaire Certifié SAP
             </span>
             <h1 className="sap-hero__title">SAP Business One</h1>
             <p className="sap-hero__subtitle">
-              The Complete ERP Solution for Growing SMEs
+              La solution ERP complète pour les PME en croissance
             </p>
           </div>
         </div>
@@ -186,29 +209,23 @@ export default function SapBusinessOne() {
         <div className="sap-container container">
           <div className="sap-about__grid">
             <ScrollReveal className="sap-about__text" direction="right">
-              <span className="sap-section-label">Overview</span>
-              <h2 className="sap-section-title">What is SAP Business One?</h2>
+              <span className="sap-section-label">Aperçu</span>
+              <h2 className="sap-section-title">Qu'est-ce que SAP Business One ?</h2>
               <p className="sap-about__description">
-                SAP Business One is an integrated enterprise resource planning
-                (ERP) solution designed specifically for small and medium-sized
-                enterprises. It provides a single, affordable way to manage your
-                entire business – from sales and customer relationships to
-                financials and operations.
+                SAP Business One est un progiciel de gestion intégré (ERP) complet, spécialement conçu pour les petites et moyennes entreprises. Il offre une solution unique et accessible pour piloter l'ensemble de votre activité, de la relation client et des ventes jusqu'à la comptabilité et la production.
               </p>
               <p className="sap-about__description">
-                As a certified SAP Business One partner, Merit Consulting Maroc
-                brings decades of implementation expertise to help you get the
-                most out of this powerful platform.
+                En tant que partenaire certifié SAP Business One, Merit Consulting Maroc met à votre disposition des décennies d'expertise en intégration pour vous aider à tirer le meilleur parti de cette plateforme performante.
               </p>
               <Link to="/contact" className="sap-about__cta">
-                Learn More <FiArrowRight />
+                En savoir plus <FiArrowRight />
               </Link>
             </ScrollReveal>
             
             <ScrollReveal className="sap-about__card" delay={0.2} direction="left">
               <div className="sap-about__card-header">
                 <FiBarChart2 />
-                <h3>Key Highlights</h3>
+                <h3>Points Clés</h3>
               </div>
               <ul className="sap-about__highlights">
                 {featureHighlights.map((item, index) => (
@@ -230,9 +247,9 @@ export default function SapBusinessOne() {
         <div className="sap-container container sap-benefits__grid">
           {/* Left Column — Text */}
           <ScrollReveal className="sap-benefits__left" direction="right">
-            <span className="sap-section-label">Advantages</span>
+            <span className="sap-section-label">Avantages</span>
             <h2 className="sap-section-title">
-              Why SMEs Choose SAP Business One
+              Pourquoi les PME choisissent SAP Business One
             </h2>
             <div className="sap-benefits__list">
               {benefits.map((benefit, index) => (
@@ -258,24 +275,24 @@ export default function SapBusinessOne() {
                   <span className="sap-dashboard-mockup__dot sap-dashboard-mockup__dot--yellow" />
                   <span className="sap-dashboard-mockup__dot sap-dashboard-mockup__dot--green" />
                 </div>
-                <div className="sap-dashboard-mockup__title-bar">SAP Business One - Cockpit Dashboard</div>
-                <div className="sap-dashboard-mockup__status">System Active</div>
+                <div className="sap-dashboard-mockup__title-bar">SAP Business One - Tableau de Bord Interactif</div>
+                <div className="sap-dashboard-mockup__status">Système Actif</div>
               </div>
               <div className="sap-dashboard-mockup__body">
                 {/* KPIs Row */}
                 <div className="sap-dashboard-mockup__kpis">
                   <div className="sap-dashboard-mockup__kpi">
-                    <span className="sap-dashboard-mockup__kpi-label">Sales Revenue</span>
+                    <span className="sap-dashboard-mockup__kpi-label">Chiffre d'Affaires</span>
                     <span className="sap-dashboard-mockup__kpi-value">€142.5K</span>
                     <span className="sap-dashboard-mockup__kpi-trend sap-dashboard-mockup__kpi-trend--up">+12.4%</span>
                   </div>
                   <div className="sap-dashboard-mockup__kpi">
-                    <span className="sap-dashboard-mockup__kpi-label">Active Orders</span>
+                    <span className="sap-dashboard-mockup__kpi-label">Commandes Actives</span>
                     <span className="sap-dashboard-mockup__kpi-value">342</span>
                     <span className="sap-dashboard-mockup__kpi-trend sap-dashboard-mockup__kpi-trend--neutral">Stable</span>
                   </div>
                   <div className="sap-dashboard-mockup__kpi">
-                    <span className="sap-dashboard-mockup__kpi-label">Low Stock Items</span>
+                    <span className="sap-dashboard-mockup__kpi-label">Articles en Rupture</span>
                     <span className="sap-dashboard-mockup__kpi-value">5</span>
                     <span className="sap-dashboard-mockup__kpi-trend sap-dashboard-mockup__kpi-trend--down">-3%</span>
                   </div>
@@ -284,36 +301,36 @@ export default function SapBusinessOne() {
                 {/* Chart & Activity Row */}
                 <div className="sap-dashboard-mockup__content">
                   <div className="sap-dashboard-mockup__chart-panel">
-                    <div className="sap-dashboard-mockup__panel-header">Monthly Revenue Performance</div>
+                    <div className="sap-dashboard-mockup__panel-header">Performance Mensuelle du Chiffre d'Affaires</div>
                     <div className="sap-dashboard-mockup__chart">
-                      <div className="sap-dashboard-mockup__bar" style={{ height: '45%' }}><span>Q1</span></div>
-                      <div className="sap-dashboard-mockup__bar" style={{ height: '65%' }}><span>Q2</span></div>
-                      <div className="sap-dashboard-mockup__bar sap-dashboard-mockup__bar--active" style={{ height: '90%' }}><span>Q3</span></div>
-                      <div className="sap-dashboard-mockup__bar" style={{ height: '75%' }}><span>Q4</span></div>
+                      <div className="sap-dashboard-mockup__bar" style={{ height: '45%' }}><span>T1</span></div>
+                      <div className="sap-dashboard-mockup__bar" style={{ height: '65%' }}><span>T2</span></div>
+                      <div className="sap-dashboard-mockup__bar sap-dashboard-mockup__bar--active" style={{ height: '90%' }}><span>T3</span></div>
+                      <div className="sap-dashboard-mockup__bar" style={{ height: '75%' }}><span>T4</span></div>
                     </div>
                   </div>
                   <div className="sap-dashboard-mockup__list-panel">
-                    <div className="sap-dashboard-mockup__panel-header">Real-time ERP Activity</div>
+                    <div className="sap-dashboard-mockup__panel-header">Activités ERP en Temps Réel</div>
                     <div className="sap-dashboard-mockup__list">
                       <div className="sap-dashboard-mockup__list-item">
                         <div className="sap-dashboard-mockup__item-indicator" />
                         <div className="sap-dashboard-mockup__item-details">
-                          <span className="sap-dashboard-mockup__item-title">Purchase Order PO-1029</span>
-                          <span className="sap-dashboard-mockup__item-time">5 mins ago</span>
+                          <span className="sap-dashboard-mockup__item-title">Commande d'achat BC-1029</span>
+                          <span className="sap-dashboard-mockup__item-time">Il y a 5 min</span>
                         </div>
                       </div>
                       <div className="sap-dashboard-mockup__list-item">
                         <div className="sap-dashboard-mockup__item-indicator" />
                         <div className="sap-dashboard-mockup__item-details">
-                          <span className="sap-dashboard-mockup__item-title">CRM Account Created</span>
-                          <span className="sap-dashboard-mockup__item-time">15 mins ago</span>
+                          <span className="sap-dashboard-mockup__item-title">Fiche Client CRM Créée</span>
+                          <span className="sap-dashboard-mockup__item-time">Il y a 15 min</span>
                         </div>
                       </div>
                       <div className="sap-dashboard-mockup__list-item">
                         <div className="sap-dashboard-mockup__item-indicator" />
                         <div className="sap-dashboard-mockup__item-details">
-                          <span className="sap-dashboard-mockup__item-title">Inventory Report Generated</span>
-                          <span className="sap-dashboard-mockup__item-time">1 hour ago</span>
+                          <span className="sap-dashboard-mockup__item-title">Rapport de Stock Généré</span>
+                          <span className="sap-dashboard-mockup__item-time">Il y a 1 heure</span>
                         </div>
                       </div>
                     </div>
@@ -330,9 +347,9 @@ export default function SapBusinessOne() {
         <div className="sap-container container">
           <ScrollReveal className="sap-modules__header">
             <span className="sap-section-label">Modules</span>
-            <h2 className="sap-section-title">SAP Business One Modules</h2>
+            <h2 className="sap-section-title">Modules SAP Business One</h2>
             <p className="sap-section-subtitle">
-              Explore the core modules that power your business operations.
+              Explorez les modules clés qui structurent et propulsent votre activité quotidienne.
             </p>
           </ScrollReveal>
           
@@ -361,7 +378,7 @@ export default function SapBusinessOne() {
                     {currentModule.icon}
                   </div>
                   <h3 className="sap-modules__detail-title">
-                    {currentModule.title} Module
+                    Module {currentModule.title}
                   </h3>
                 </div>
                 <p className="sap-modules__detail-desc">
@@ -384,13 +401,12 @@ export default function SapBusinessOne() {
       <section className="sap-why-merit section">
         <div className="sap-container container">
           <ScrollReveal className="sap-why-merit__header">
-            <span className="sap-section-label">Our Expertise</span>
+            <span className="sap-section-label">Notre Expertise</span>
             <h2 className="sap-section-title">
-              Why Choose Merit Consulting Maroc for SAP Business One?
+              Pourquoi choisir Merit Consulting Maroc pour SAP Business One ?
             </h2>
             <p className="sap-section-subtitle">
-              Partnering with us means working with a team that combines deep
-              SAP knowledge with local market expertise.
+              Collaborer avec nous, c'est choisir une équipe d'experts qui allie une connaissance pointue de SAP à une parfaite maîtrise du marché marocain.
             </p>
           </ScrollReveal>
           
@@ -415,18 +431,17 @@ export default function SapBusinessOne() {
         <div className="sap-container container">
           <ScrollReveal className="sap-cta__content">
             <h2 className="sap-cta__title">
-              Ready to Get Started with SAP Business One?
+              Prêt à démarrer avec SAP Business One ?
             </h2>
             <p className="sap-cta__desc">
-              Schedule a free consultation with our SAP experts and discover how
-              SAP Business One can transform your business.
+              Planifiez une consultation gratuite avec nos experts SAP et découvrez comment SAP Business One peut propulser votre entreprise.
             </p>
             <div className="sap-cta__actions">
               <Link to="/contact?subject=sap-business-one" className="btn btn-accent btn-lg">
-                Request a Demo <FiArrowRight />
+                Demander une démonstration <FiArrowRight />
               </Link>
               <Link to="/contact?subject=sap-business-one" className="btn btn-outline btn-lg">
-                Contact Our SAP Team <FiArrowRight />
+                Contacter notre Équipe SAP <FiArrowRight />
               </Link>
             </div>
           </ScrollReveal>

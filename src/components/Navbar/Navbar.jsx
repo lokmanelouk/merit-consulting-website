@@ -1,12 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 import Logo from '../Logo/Logo';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { path: '/', label: 'Home' },
-  { path: '/about', label: 'About' },
+  { path: '/', label: 'Accueil' },
+  { path: '/about', label: 'À Propos' },
   { path: '/services', label: 'Services' },
   { path: '/sap-business-one', label: 'SAP Business One' },
   { path: '/contact', label: 'Contact' },
@@ -31,7 +32,9 @@ export default function Navbar() {
   /* lock body scroll when drawer open */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [mobileOpen]);
 
   /* close drawer on route change */
@@ -42,9 +45,9 @@ export default function Navbar() {
   const isActive = (path) =>
     path === '/' ? pathname === '/' : pathname.startsWith(path);
 
-  const isContactPage = pathname.replace(/\/$/, '').toLowerCase() === '/contact';
-  const forceSolid = scrolled || isContactPage;
-
+  const normalizedPath = pathname.replace(/\/$/, '').toLowerCase();
+  const isSolidPage = normalizedPath === '/contact' || normalizedPath === '/services';
+  const forceSolid = scrolled || isSolidPage;
 
   return (
     <>
@@ -67,7 +70,7 @@ export default function Navbar() {
             ))}
             <li>
               <Link to="/contact" className="navbar-cta btn btn-accent btn-sm">
-                Contact Us
+                Contact
               </Link>
             </li>
           </ul>
@@ -85,34 +88,67 @@ export default function Navbar() {
       </nav>
 
       {/* ── Mobile drawer ── */}
-      <div
-        className={`navbar-overlay ${mobileOpen ? 'navbar-overlay--visible' : ''}`}
-        onClick={() => setMobileOpen(false)}
-        aria-hidden="true"
-      />
+      <AnimatePresence>
+        {mobileOpen && (
+          <>
+            {/* Overlay */}
+            <motion.div
+              className="navbar-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setMobileOpen(false)}
+              aria-hidden="true"
+            />
 
-      <aside className={`navbar-drawer ${mobileOpen ? 'navbar-drawer--open' : ''}`}>
-        <ul className="navbar-drawer-links">
-          {NAV_LINKS.map((link) => (
-            <li key={link.path}>
+            {/* Drawer */}
+            <motion.aside
+              className="navbar-drawer"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+            >
+              {/* Header inside drawer */}
+              <div className="navbar-drawer-header">
+                <Logo isDarkBg={false} className="navbar-drawer-logo" onClick={() => setMobileOpen(false)} />
+                <button
+                  className="navbar-drawer-close"
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Close menu"
+                >
+                  <FiX />
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <ul className="navbar-drawer-links">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.path}>
+                    <Link
+                      to={link.path}
+                      className={`navbar-drawer-link ${isActive(link.path) ? 'navbar-drawer-link--active' : ''}`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Contact CTA */}
               <Link
-                to={link.path}
-                className={`navbar-drawer-link ${isActive(link.path) ? 'navbar-drawer-link--active' : ''}`}
+                to="/contact"
+                className="navbar-drawer-cta btn btn-accent"
+                onClick={() => setMobileOpen(false)}
               >
-                {link.label}
+                Contact
               </Link>
-            </li>
-          ))}
-        </ul>
-
-        <Link
-          to="/contact"
-          className="navbar-drawer-cta btn btn-accent"
-          onClick={() => setMobileOpen(false)}
-        >
-          Contact Us
-        </Link>
-      </aside>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

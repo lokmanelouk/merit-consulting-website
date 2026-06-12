@@ -23,56 +23,56 @@ const services = [
   {
     id: 1,
     icon: <FiDatabase />,
-    title: 'SAP Business One Implementation',
+    title: 'Implémentation SAP Business One',
     description:
-      'End-to-end SAP Business One implementation tailored to your business needs. From initial assessment to go-live and beyond, we ensure a smooth transition to SAP.',
-    benefits: ['Streamlined operations', 'Real-time insights', 'Scalable growth'],
+      'Implémentation SAP Business One de bout en bout, adaptée à vos besoins métier. De l\'évaluation initiale au lancement et au-delà, nous assurons une transition fluide vers SAP.',
+    benefits: ['Opérations rationalisées', 'Informations en temps réel', 'Croissance évolutive'],
     technologies: ['SAP Business One', 'SAP HANA', 'Crystal Reports'],
   },
   {
     id: 2,
     icon: <FiBarChart2 />,
-    title: 'ERP Consulting',
+    title: 'Conseil ERP',
     description:
-      'Strategic ERP consulting to help you choose, plan, and execute the right enterprise solution. Our consultants analyze your processes and recommend optimal configurations.',
-    benefits: ['Process optimization', 'Cost reduction', 'Data-driven decisions'],
-    technologies: ['SAP Business One', 'Business Intelligence', 'Process Mapping'],
+      'Conseil ERP stratégique pour vous aider à choisir, planifier et exécuter la bonne solution d\'entreprise. Nos consultants analysent vos processus et recommandent les configurations optimales.',
+    benefits: ['Optimisation des processus', 'Réduction des coûts', 'Décisions basées sur les données'],
+    technologies: ['SAP Business One', 'Intelligence d\'Affaires', 'Cartographie des Processus'],
   },
   {
     id: 3,
     icon: <FiCode />,
-    title: 'Software Development',
+    title: 'Développement Logiciel',
     description:
-      'Custom software development to address unique business requirements. We build robust, scalable applications that integrate seamlessly with your existing systems.',
-    benefits: ['Custom solutions', 'API integration', 'Modern architecture'],
-    technologies: ['Web Applications', 'Mobile Apps', 'Cloud Solutions'],
+      'Développement logiciel sur mesure pour répondre à des besoins métier uniques. Nous construisons des applications robustes et évolutives qui s\'intègrent parfaitement à vos systèmes existants.',
+    benefits: ['Solutions sur mesure', 'Intégration API', 'Architecture moderne'],
+    technologies: ['Applications Web', 'Applications Mobiles', 'Solutions Cloud'],
   },
   {
     id: 4,
     icon: <FiLink />,
-    title: 'Custom Integrations',
+    title: 'Intégrations sur Mesure',
     description:
-      'Seamless integration between SAP Business One and third-party systems. We connect your ERP with e-commerce platforms, CRM systems, and industry-specific tools.',
-    benefits: ['Unified data flow', 'Automation', 'Reduced manual work'],
-    technologies: ['REST APIs', 'SAP Integration Framework', 'ETL Tools'],
+      'Intégration transparente entre SAP Business One et les systèmes tiers. Nous connectons votre ERP avec les plateformes e-commerce, les systèmes CRM et les outils spécifiques à votre secteur.',
+    benefits: ['Flux de données unifié', 'Automatisation', 'Réduction du travail manuel'],
+    technologies: ['APIs REST', 'Framework d\'Intégration SAP', 'Outils ETL'],
   },
   {
     id: 5,
     icon: <FiLifeBuoy />,
-    title: 'Technical Support',
+    title: 'Support Technique',
     description:
-      'Reliable technical support and maintenance services to keep your systems running at peak performance. Our team is available to resolve issues quickly and efficiently.',
-    benefits: ['24/7 monitoring', 'Quick resolution', 'Preventive maintenance'],
-    technologies: ['Remote Support', 'System Monitoring', 'Performance Tuning'],
+      'Services de support technique et de maintenance fiables pour maintenir vos systèmes à leur performance optimale. Notre équipe est disponible pour résoudre les problèmes rapidement et efficacement.',
+    benefits: ['Surveillance 24h/24', 'Résolution rapide', 'Maintenance préventive'],
+    technologies: ['Support à Distance', 'Surveillance Systèmes', 'Optimisation des Performances'],
   },
   {
     id: 6,
     icon: <FiBookOpen />,
-    title: 'User Training',
+    title: 'Formation Utilisateurs',
     description:
-      'Comprehensive training programs to ensure your team maximizes the value of your technology investments. From basic operations to advanced features.',
-    benefits: ['Increased productivity', 'User adoption', 'Reduced errors'],
-    technologies: ['Hands-on workshops', 'Online training', 'Documentation'],
+      'Programmes de formation complets pour garantir que votre équipe maximise la valeur de vos investissements technologiques. Des opérations de base aux fonctionnalités avancées.',
+    benefits: ['Productivité accrue', 'Adoption utilisateur', 'Réduction des erreurs'],
+    technologies: ['Ateliers pratiques', 'Formation en ligne', 'Documentation'],
   },
 ];
 
@@ -80,35 +80,43 @@ const processSteps = [
   {
     number: '01',
     icon: <FiSearch />,
-    title: 'Discovery & Analysis',
+    title: 'Découverte & Analyse',
     description:
-      'We assess your current systems and understand your business objectives',
+      'Nous évaluons vos systèmes actuels et comprenons vos objectifs métier',
   },
   {
     number: '02',
     icon: <FiLayout />,
-    title: 'Planning & Design',
+    title: 'Planification & Conception',
     description:
-      'We architect the optimal solution and create a detailed implementation roadmap',
+      'Nous concevons la solution optimale et créons une feuille de route d\'implémentation détaillée',
   },
   {
     number: '03',
     icon: <FiSettings />,
-    title: 'Implementation & Testing',
+    title: 'Implémentation & Tests',
     description:
-      'We configure, customize, and thoroughly test every aspect of your solution',
+      'Nous configurons, personnalisons et testons minutieusement chaque aspect de votre solution',
   },
   {
     number: '04',
     icon: <FiHeadphones />,
-    title: 'Support & Optimization',
+    title: 'Support & Optimisation',
     description:
-      'We provide ongoing support and continuously optimize your systems',
+      'Nous fournissons un support continu et optimisons en permanence vos systèmes',
   },
 ];
 
 function Services() {
   const location = useLocation();
+
+  useEffect(() => {
+    document.title = "Nos Services | Merit Consulting Maroc";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Découvrez nos services d'intégration SAP Business One, de conseil ERP, de développement de logiciels sur mesure, d'intégration API et de support technique.");
+    }
+  }, []);
   const [expandedCard, setExpandedCard] = useState(null);
 
   useEffect(() => {
@@ -149,9 +157,9 @@ function Services() {
         <div className="services-hero__bg-pattern" />
         <div className="services-hero__container container">
           <div className="services-hero__left">
-            <h1 className="services-hero__title">Our Services</h1>
+            <h1 className="services-hero__title">Nos Services</h1>
             <p className="services-hero__subtitle">
-              Comprehensive solutions to accelerate your digital transformation.
+              Des solutions complètes pour accélérer votre transformation digitale.
             </p>
           </div>
         </div>
@@ -161,13 +169,13 @@ function Services() {
       <section className="services-grid section">
         <div className="services-grid__container container">
           <ScrollReveal className="services-grid__header">
-            <span className="services-grid__label">What We Offer</span>
+            <span className="services-grid__label">Ce Que Nous Offrons</span>
             <h2 className="services-grid__title">
-              End-to-End Technology Solutions
+              Solutions Technologiques de Bout en Bout
             </h2>
             <p className="services-grid__description">
-              From implementation to ongoing support, we provide comprehensive
-              services to help your business thrive in the digital age.
+              De l&apos;implémentation au support continu, nous fournissons des services complets
+              pour aider votre entreprise à prospérer à l&apos;ère du numérique.
             </p>
           </ScrollReveal>
 
@@ -207,7 +215,7 @@ function Services() {
 
                         <div className="service-card__benefits">
                           <h4 className="service-card__section-title">
-                            Key Benefits
+                            Avantages Clés
                           </h4>
                           <ul className="service-card__benefits-list">
                             {service.benefits.map((benefit, index) => (
@@ -245,8 +253,8 @@ function Services() {
       <section className="services-process section section--alternate">
         <div className="services-process__container container">
           <ScrollReveal className="services-process__header">
-            <span className="services-process__label">How We Work</span>
-            <h2 className="services-process__title">Our Proven Methodology</h2>
+            <span className="services-process__label">Notre Approche</span>
+            <h2 className="services-process__title">Notre Méthodologie Éprouvée</h2>
           </ScrollReveal>
 
           <div className="services-process__steps">
@@ -278,13 +286,13 @@ function Services() {
       <section className="services-cta">
         <div className="services-cta__container container">
           <ScrollReveal className="services-cta__content">
-            <h2 className="services-cta__title">Need a Custom Solution?</h2>
+            <h2 className="services-cta__title">Besoin d&apos;une Solution sur Mesure ?</h2>
             <p className="services-cta__text">
-              Let our experts help you find the right technology solution for
-              your business.
+              Laissez nos experts vous aider à trouver la bonne solution technologique pour
+              votre entreprise.
             </p>
             <Link to="/contact" className="services-cta__button btn btn-accent btn-lg">
-              Schedule a Consultation
+              Planifier une Consultation
               <FiArrowRight className="services-cta__button-icon" />
             </Link>
           </ScrollReveal>

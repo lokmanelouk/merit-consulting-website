@@ -31,90 +31,90 @@ import './Home.css';
 
 /* ── Data ─────────────────────────────────────────────────── */
 const keyFigures = [
-  { end: 40, suffix: '', label: 'Years of Expertise', desc: 'Delivering world-class consulting since 1986.', icon: FiAward },
-  { end: 24, suffix: '', label: 'Years with SAP', desc: 'Specialized SAP Business One implementations.', icon: FiLayers },
-  { end: 80, suffix: '+', label: 'Clients Supported', desc: 'Empowering businesses of every size.', icon: FiUsers },
-  { end: 1000, suffix: '+', label: 'Active Users', desc: 'Professionals using our solutions daily.', icon: FiMonitor },
+  { end: 40, suffix: '', label: "Années d'Expertise", desc: "Conseil de classe mondiale depuis 1986.", icon: FiAward },
+  { end: 24, suffix: '', label: "Années de Partenariat SAP", desc: "Spécialisation dans les implémentations SAP Business One.", icon: FiLayers },
+  { end: 80, suffix: '+', label: "Clients Accompagnés", desc: "Accompagnement des entreprises de toutes tailles.", icon: FiUsers },
+  { end: 1000, suffix: '+', label: "Utilisateurs Actifs", desc: "Professionnels utilisant nos solutions au quotidien.", icon: FiMonitor },
 ];
 
 const services = [
   { 
     icon: FiDatabase, 
-    title: 'SAP Business One Implementation', 
-    desc: 'End-to-end SAP B1 deployment tailored to your business processes and growth objectives.', 
+    title: 'Implémentation SAP Business One', 
+    desc: 'Déploiement complet de SAP B1 adapté à vos processus métier et vos objectifs de croissance.', 
     highlight: true, 
     link: '/sap-business-one' 
   },
   { 
     icon: FiBarChart2, 
-    title: 'ERP Consulting', 
-    desc: 'Strategic ERP advisory services to optimize operations, reduce costs, and drive efficiency.', 
+    title: 'Conseil ERP', 
+    desc: 'Services de conseil stratégique ERP pour optimiser les opérations, réduire les coûts et accroître l\'efficacité.', 
     link: '/services#erp-consulting' 
   },
   { 
     icon: FiCode, 
-    title: 'Software Development', 
-    desc: 'Custom software solutions built with modern technologies to address unique business challenges.', 
+    title: 'Développement Logiciel', 
+    desc: 'Solutions logicielles sur mesure conçues avec des technologies modernes pour répondre à vos défis spécifiques.', 
     link: '/services#software-development' 
   },
   { 
     icon: FiLink, 
-    title: 'Custom Integrations', 
-    desc: 'Seamless integration of your existing systems with SAP and third-party applications.', 
+    title: 'Intégrations sur Mesure', 
+    desc: 'Intégration transparente de vos systèmes existants avec SAP et des applications tierces.', 
     link: '/services#custom-integrations' 
   },
   { 
     icon: FiLifeBuoy, 
-    title: 'Technical Support', 
-    desc: 'Responsive 24/7 technical assistance ensuring your systems run smoothly at all times.', 
+    title: 'Support Technique', 
+    desc: 'Assistance technique réactive 24/7 pour garantir le bon fonctionnement continu de vos systèmes.', 
     link: '/services#technical-support' 
   },
   { 
     icon: FiBookOpen, 
-    title: 'User Training', 
-    desc: 'Comprehensive training programs to maximize user adoption and system ROI.', 
+    title: 'Formation Utilisateurs', 
+    desc: 'Programmes de formation complets pour maximiser l\'adoption par les utilisateurs et le retour sur investissement.', 
     link: '/services#user-training' 
   },
 ];
 
 const sapFeatures = [
-  'Financial Management & Accounting',
-  'Sales & Customer Management',
-  'Purchasing & Inventory Control',
-  'Production & MRP Planning',
-  'Business Intelligence & Reporting',
-  'Multi-currency & Multi-language Support',
+  'Gestion Financière & Comptabilité',
+  'Ventes & Gestion Client (CRM)',
+  'Achats & Contrôle des Stocks',
+  'Production & Planification MRP',
+  'Informatique Décisionnelle & Reporting',
+  'Support Multi-devises & Multilingue',
 ];
 
 const clientIndustries = [
-  'Manufacturing',
+  'Industrie & Production',
   'Distribution',
-  'Retail',
+  'Commerce de Détail',
   'Services',
-  'Construction',
-  'Healthcare',
-  'Logistics',
+  'BTP & Construction',
+  'Santé',
+  'Logistique & Transport',
   'Agriculture',
 ];
 
 const testimonials = [
   {
-    quote: "Merit Consulting Maroc transformed our entire operation with SAP Business One. Their expertise, professionalism, and dedication to our success made all the difference. We saw a 35% improvement in operational efficiency within the first year.",
-    author: "Managing Director",
-    role: "Leading Manufacturing Company, Casablanca",
-    avatar: "MC"
+    quote: "Merit Consulting Maroc a transformé l'ensemble de nos opérations grâce à SAP Business One. Leur expertise, professionnalisme et dévouement ont fait toute la différence. Nous avons constaté une amélioration de 35% de notre efficacité opérationnelle dès la première année.",
+    author: "Directeur Général",
+    role: "Entreprise Industrielle Leader, Casablanca",
+    avatar: "DG"
   },
   {
-    quote: "The custom integrations developed by Merit Consulting connected our CRM, warehouse systems, and SAP Business One perfectly. Manual entry error was reduced by over 90%, speeding up our order dispatch operations.",
-    author: "Operations Director",
-    role: "Pan-African Distribution Hub, Tangier",
-    avatar: "PD"
+    quote: "Les intégrations personnalisées développées par Merit Consulting ont parfaitement connecté notre CRM, nos systèmes d'entrepôt et SAP Business One. Les erreurs de saisie manuelle ont été réduites de plus de 90%, accélérant ainsi la préparation de nos commandes.",
+    author: "Directeur des Opérations",
+    role: "Hub de Distribution Panafricain, Tanger",
+    avatar: "DO"
   },
   {
-    quote: "Merit provided an outstanding level of support during our transition. Their consultants understood our local industry requirements and aligned SAP modules exactly to our business workflows.",
-    author: "Finance Director",
-    role: "Service Sector Enterprise, Rabat",
-    avatar: "FE"
+    quote: "Merit a fourni un niveau de support exceptionnel pendant notre transition. Leurs consultants ont compris nos exigences industrielles locales et ont aligné précisément les modules SAP sur nos flux de travail.",
+    author: "Directeur Financier",
+    role: "Entreprise du Secteur des Services, Rabat",
+    avatar: "DF"
   }
 ];
 
@@ -164,6 +164,14 @@ function StatCard({ end, suffix, label, desc, icon: Icon, delay }) {
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  useEffect(() => {
+    document.title = "Merit Consulting Maroc | Experts SAP Business One et Transformation Digitale";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Merit Consulting Maroc accompagne les entreprises avec des solutions ERP innovantes, SAP Business One et des stratégies de transformation digitale.');
+    }
+  }, []);
+
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
@@ -211,23 +219,21 @@ export default function Home() {
             animate="visible"
           >
             <motion.span className="hero__label" variants={heroItemVariants}>
-              Certified SAP Business One Partner
+              PARTENAIRE CERTIFIÉ SAP BUSINESS ONE
             </motion.span>
             <motion.h1 className="hero__title" variants={heroItemVariants}>
-              Digital Transformation and{' '}
-              <span className="hero__highlight">SAP Business One</span> Experts
+              Experts en Transformation Digitale et{' '}
+              <span className="hero__highlight">SAP Business One</span>
             </motion.h1>
             <motion.p className="hero__subtitle" variants={heroItemVariants}>
-              Merit Consulting Maroc empowers businesses with innovative ERP solutions,
-              management systems, and digital transformation strategies. Over 40 years
-              of expertise at your service.
+              Merit Consulting Maroc accompagne les entreprises avec des solutions ERP innovantes et des systèmes de management performants.
             </motion.p>
             <motion.div className="hero__actions" variants={heroItemVariants}>
               <Link to="/contact" className="btn btn-accent btn-lg">
-                Contact Us
+                Nous Contacter
               </Link>
               <Link to="/contact?subject=sap-business-one" className="btn btn-outline btn-lg">
-                Request a Demo
+                Demander une Démo
               </Link>
             </motion.div>
           </motion.div>
@@ -237,9 +243,9 @@ export default function Home() {
       {/* ====== TECHNOLOGY PARTNERS BAR ====== */}
       <section className="partner-bar">
         <div className="container partner-bar__container">
-          <span className="partner-bar__title">Technology Partners:</span>
+          <span className="partner-bar__title">Partenaires Technologiques :</span>
           <div className="partner-bar__logos">
-            <span className="partner-logo-item">SAP Gold Partner</span>
+            <span className="partner-logo-item">Partenaire SAP Gold</span>
             <span className="partner-logo-item">Microsoft SQL Server</span>
             <span className="partner-logo-item">SAP HANA</span>
             <span className="partner-logo-item">SUSE Linux</span>
@@ -253,18 +259,13 @@ export default function Home() {
         <div className="container">
           <div className="about__grid">
             <ScrollReveal className="about__text">
-              <span className="section-label">WHO WE ARE</span>
-              <h2 className="section-title">Your Trusted Partner in Digital Transformation</h2>
+              <span className="section-label">QUI SOMMES-NOUS</span>
+              <h2 className="section-title">Votre Partenaire de Confiance en Transformation Digitale</h2>
               <p className="about__description">
-                Merit Consulting Maroc is a leading IT consultancy specializing in SAP Business One,
-                enterprise resource planning, management systems, and bespoke software development.
-                We combine deep industry knowledge with cutting-edge technology to help organizations
-                streamline operations, boost productivity, and achieve sustainable growth.
+                Merit Consulting Maroc est un cabinet de conseil en technologies de premier plan, spécialisé dans SAP Business One, les progiciels de gestion intégrés (ERP), les systèmes de management et le développement de logiciels sur mesure. Nous associons une expertise sectorielle approfondie à des technologies de pointe pour aider les entreprises à rationaliser leurs opérations, accroître leur productivité et atteindre une croissance durable.
               </p>
               <p className="about__description">
-                Our multidisciplinary team of consultants, developers, and project managers works
-                hand-in-hand with clients to deliver solutions that truly transform businesses—from
-                initial strategy through implementation and beyond.
+                Notre équipe multidisciplinaire de consultants, développeurs et chefs de projet travaille en étroite collaboration avec nos clients pour livrer des solutions qui transforment réellement leur entreprise, de la stratégie initiale à la mise en œuvre et au-delà.
               </p>
             </ScrollReveal>
 
@@ -272,7 +273,7 @@ export default function Home() {
               <div className="about__image-wrapper">
                 <img 
                   src={heroCasablanca} 
-                  alt="Casablanca Finance City skyline representing Business in Morocco" 
+                  alt="Casablanca Finance City skyline représentant les affaires au Maroc" 
                   className="about__image"
                   loading="lazy"
                 />
@@ -287,10 +288,10 @@ export default function Home() {
       <section className="section figures section--alternate">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">OUR IMPACT</span>
-            <h2 className="section-title">Key Figures That Speak for Themselves</h2>
+            <span className="section-label">NOTRE IMPACT</span>
+            <h2 className="section-title">Des Chiffres Clés Qui Parlent d'Eux-mêmes</h2>
             <p className="section-subtitle">
-              Numbers that reflect our commitment to excellence and the trust our clients place in us.
+              Des indicateurs qui reflètent notre engagement envers l'excellence et la confiance que nous accordent nos clients.
             </p>
           </div>
 
@@ -306,11 +307,10 @@ export default function Home() {
       <section className="section services">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">OUR SERVICES</span>
-            <h2 className="section-title">Comprehensive IT Solutions</h2>
+            <span className="section-label">NOS SERVICES</span>
+            <h2 className="section-title">Des Solutions Technologiques Complètes</h2>
             <p className="section-subtitle">
-              From implementation to integration, training, and support—we cover the full spectrum
-              of your IT needs.
+              De l'implémentation à l'intégration, en passant par la formation et le support, nous couvrons l'ensemble de vos besoins technologiques.
             </p>
           </div>
 
@@ -327,7 +327,7 @@ export default function Home() {
                   className={`services__card ${svc.highlight ? 'services__card--highlight' : ''}`}
                 >
                   {svc.highlight && (
-                    <span className="services__card-badge">Core Expertise</span>
+                    <span className="services__card-badge">Expertise Clé</span>
                   )}
                   <div className="services__card-icon">
                     <svc.icon />
@@ -335,7 +335,7 @@ export default function Home() {
                   <h3 className="services__card-title">{svc.title}</h3>
                   <p className="services__card-desc">{svc.desc}</p>
                   <span className="services__card-link">
-                    Learn More <FiArrowRight />
+                    En savoir plus <FiArrowRight />
                   </span>
                 </Link>
               </ScrollReveal>
@@ -350,11 +350,9 @@ export default function Home() {
           <div className="sap-highlight__grid">
             <ScrollReveal className="sap-highlight__info">
               <span className="section-label">SAP BUSINESS ONE</span>
-              <h2 className="section-title">SAP Business One: Your Growth Engine</h2>
+              <h2 className="section-title">SAP Business One : Votre Moteur de Croissance</h2>
               <p className="sap-highlight__desc">
-                SAP Business One is an affordable, easy-to-use ERP solution designed specifically
-                for small and medium-sized enterprises (SMEs) experiencing growth. It integrates all core business functions—
-                financials, sales, inventory, and procurement—into a single platform, giving you real-time visibility and control.
+                SAP Business One est une solution ERP abordable et simple d'utilisation, spécialement conçue pour accompagner la croissance des petites et moyennes entreprises (PME). Elle intègre toutes vos fonctions clés — gestion financière, ventes, stocks et achats — au sein d'une plateforme unique, vous offrant une visibilité et un contrôle en temps réel.
               </p>
               
               <ul className="sap-highlight__features">
@@ -368,10 +366,10 @@ export default function Home() {
               
               <div className="sap-highlight__actions">
                 <Link to="/sap-business-one" className="btn btn-primary btn-lg">
-                  Discover SAP B1 <FiArrowRight />
+                  Découvrir SAP B1 <FiArrowRight />
                 </Link>
                 <Link to="/contact?subject=sap-business-one" className="btn btn-accent-glow btn-lg">
-                  Request a Demo
+                  Demander une Démo
                 </Link>
               </div>
             </ScrollReveal>
@@ -406,7 +404,7 @@ export default function Home() {
                     <span className="dot dot--yellow" />
                     <span className="dot dot--green" />
                   </div>
-                  <div className="dashboard-mockup__title">SAP B1 Live Portal</div>
+                  <div className="dashboard-mockup__title">Portail Live SAP B1</div>
                 </div>
                 
                 {/* Mockup Content */}
@@ -414,31 +412,31 @@ export default function Home() {
                   <div className="dashboard-mockup__widgets">
                     <div className="widget-card">
                       <div className="widget-card__top">
-                        <span className="widget-card__label">Total Revenue</span>
+                        <span className="widget-card__label">Chiffre d'Affaires</span>
                         <FiDollarSign className="widget-card__icon text-accent" />
                       </div>
                       <div className="widget-card__value">$428.4K</div>
-                      <div className="widget-card__growth text-success">+18.2% this month</div>
+                      <div className="widget-card__growth text-success">+18.2% ce mois-ci</div>
                     </div>
                     
                     <div className="widget-card">
                       <div className="widget-card__top">
-                        <span className="widget-card__label">Active Orders</span>
+                        <span className="widget-card__label">Commandes Actives</span>
                         <FiPackage className="widget-card__icon text-primary" />
                       </div>
                       <div className="widget-card__value">148</div>
-                      <div className="widget-card__growth text-success">98.5% shipped on time</div>
+                      <div className="widget-card__growth text-success">98.5% livrées à temps</div>
                     </div>
 
                     <div className="widget-card widget-card--full">
                       <div className="widget-card__top">
-                        <span className="widget-card__label">Operations Growth (HANA Live)</span>
+                        <span className="widget-card__label">Croissance Opérationnelle (HANA Live)</span>
                         <FiTrendingUp className="widget-card__icon text-accent" />
                       </div>
                       {/* Simple SVG Chart */}
                       <div className="widget-card__chart">
                         <svg viewBox="0 0 300 80" className="chart-svg">
-                          <defs>
+                           <defs>
                             <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
                               <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.4"/>
                               <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.0"/>
@@ -464,11 +462,10 @@ export default function Home() {
       <section className="section trust">
         <div className="container">
           <div className="section-header">
-            <span className="section-label">TESTIMONIALS</span>
-            <h2 className="section-title">Driving Success for Our Clients</h2>
+            <span className="section-label">TÉMOIGNAGES</span>
+            <h2 className="section-title">Accélérer la Réussite de Nos Clients</h2>
             <p className="section-subtitle">
-              Companies across Morocco and beyond rely on Merit Consulting Maroc for their
-              most critical business systems.
+              De nombreuses entreprises au Maroc et en Afrique font confiance à Merit Consulting Maroc pour la gestion de leurs systèmes d'information critiques.
             </p>
           </div>
 
@@ -527,7 +524,7 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal className="trust__industries" delay={0.2}>
-              <h3 className="trust__industries-title">Industries We Serve</h3>
+              <h3 className="trust__industries-title">Secteurs d'Activité</h3>
               <div className="trust__tags">
                 {clientIndustries.map((ind, i) => (
                   <span className="trust__tag" key={i}>{ind}</span>
@@ -536,15 +533,15 @@ export default function Home() {
               <div className="trust__indicators">
                 <div className="trust__indicator">
                   <FiShield className="trust__indicator-icon" />
-                  <span>ISO 9001 Compliant Processes</span>
+                  <span>Processus Conformes ISO 9001</span>
                 </div>
                 <div className="trust__indicator">
                   <FiAward className="trust__indicator-icon" />
-                  <span>SAP Certified Gold Partner</span>
+                  <span>Partenaire Certifié SAP Gold</span>
                 </div>
                 <div className="trust__indicator">
                   <FiGlobe className="trust__indicator-icon" />
-                  <span>Pan-African Reach</span>
+                  <span>Présence Panafricaine</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -557,17 +554,16 @@ export default function Home() {
         <div className="cta__pattern" aria-hidden="true" />
         <div className="container cta__container">
           <ScrollReveal>
-            <h2 className="cta__title">Ready to Transform Your Business?</h2>
+            <h2 className="cta__title">Prêt à Transformer Votre Entreprise ?</h2>
             <p className="cta__subtitle">
-              Let&apos;s discuss how Merit Consulting Maroc can help you achieve your digital
-              transformation goals.
+              Échangeons sur la manière dont Merit Consulting Maroc peut vous aider à atteindre vos objectifs de transformation digitale.
             </p>
             <div className="cta__actions">
               <Link to="/contact" className="btn btn-accent btn-lg">
-                Schedule a Consultation <FiArrowRight />
+                Planifier une Consultation <FiArrowRight />
               </Link>
               <Link to="/contact" className="btn btn-outline btn-lg">
-                Get Started
+                Commencer
               </Link>
             </div>
           </ScrollReveal>

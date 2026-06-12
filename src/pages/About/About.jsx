@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FiTarget, 
@@ -16,56 +17,64 @@ import './About.css';
 const milestones = [
   { 
     year: '1986', 
-    title: 'Foundational Beginnings', 
-    label: 'Merit Consulting was established, focusing on traditional accounting and business management systems.' 
+    title: 'Débuts Fondateurs', 
+    label: 'Merit Consulting a été créé, se concentrant sur la comptabilité traditionnelle et les systèmes de gestion d\'entreprise.' 
   },
   { 
     year: '2000', 
-    title: 'Software Expansion', 
-    label: 'Expanded service catalog to include custom software development, relational databases, and IT consulting.' 
+    title: 'Expansion Logicielle', 
+    label: 'Élargissement du catalogue de services pour inclure le développement logiciel sur mesure, les bases de données relationnelles et le conseil IT.' 
   },
   { 
     year: '2010', 
-    title: 'SAP Partnership', 
-    label: 'Certified as an official SAP Business One partner, establishing a dedicated ERP business unit for SMEs.' 
+    title: 'Partenariat SAP', 
+    label: 'Certifié partenaire officiel SAP Business One, création d\'une unité dédiée ERP pour les PME.' 
   },
   { 
     year: '2024', 
-    title: 'Cloud Innovation & Africa', 
-    label: 'Launched next-generation cloud ERP integrations and digital transformation consulting across Africa.' 
+    title: 'Innovation Cloud & Afrique', 
+    label: 'Lancement d\'intégrations ERP cloud nouvelle génération et de services de conseil en transformation digitale à travers l\'Afrique.' 
   },
 ];
 
 const teamMembers = [
   {
     name: 'Ahmed Benali',
-    title: 'CEO & Founder',
-    bio: 'Over 30 years of experience in IT consulting and enterprise solutions.',
+    title: 'PDG & Fondateur',
+    bio: 'Plus de 30 ans d\'expérience dans le conseil IT et les solutions d\'entreprise.',
     gradient: 'linear-gradient(135deg, #0A2463, #1E56A0)',
   },
   {
     name: 'Sara El Mansouri',
-    title: 'SAP Practice Lead',
-    bio: 'SAP certified consultant with 15+ years of implementation experience.',
+    title: 'Responsable Pratique SAP',
+    bio: 'Consultante certifiée SAP avec plus de 15 ans d\'expérience en implémentation.',
     gradient: 'linear-gradient(135deg, #0096C7, #00B4D8)',
   },
   {
     name: 'Karim Tazi',
-    title: 'Technical Director',
-    bio: 'Expert in software architecture and system integration.',
+    title: 'Directeur Technique',
+    bio: 'Expert en architecture logicielle et intégration de systèmes.',
     gradient: 'linear-gradient(135deg, #1E56A0, #00B4D8)',
   },
   {
     name: 'Nadia Alaoui',
-    title: 'Client Success Manager',
-    bio: 'Dedicated to ensuring exceptional client outcomes and satisfaction.',
+    title: 'Responsable Succès Client',
+    bio: 'Dédiée à assurer des résultats et une satisfaction client exceptionnels.',
     gradient: 'linear-gradient(135deg, #0A2463, #0096C7)',
   },
 ];
 
-const values = ['Innovation', 'Integrity', 'Excellence', 'Partnership', 'Commitment'];
+const values = ['Innovation', 'Intégrité', 'Excellence', 'Partenariat', 'Engagement'];
 
 export default function About() {
+  useEffect(() => {
+    document.title = "À Propos | Merit Consulting Maroc";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', "Découvrez l'histoire de Merit Consulting Maroc, notre expertise de plus de 40 ans en gestion de projet ERP et notre engagement envers nos clients.");
+    }
+  }, []);
+
   return (
     <div className="about-page">
       {/* ── Hero Banner ── */}
@@ -73,9 +82,9 @@ export default function About() {
         <div className="about-hero__bg-pattern" />
         <div className="about-hero__container container">
           <div className="about-hero__left">
-            <h1 className="about-hero__title">About Merit Consulting Maroc</h1>
+            <h1 className="about-hero__title">À Propos de Merit Consulting Maroc</h1>
             <p className="about-hero__subtitle">
-              Decades of experience helping Moroccan businesses evolve.
+              Des décennies d&apos;expérience au service de l&apos;évolution des entreprises marocaines.
             </p>
           </div>
           <div className="about-hero__right">
@@ -89,11 +98,11 @@ export default function About() {
                       <div className="about-hero__glass-chip" />
                     </div>
                     <div className="about-hero__glass-body">
-                      <span className="about-hero__glass-stat">40 Years</span>
-                      <span className="about-hero__glass-tag">of innovation</span>
+                      <span className="about-hero__glass-stat">40 Ans</span>
+                      <span className="about-hero__glass-tag">d&apos;innovation</span>
                     </div>
                     <div className="about-hero__glass-footer">
-                      <span className="about-hero__glass-cert">SAP Certified</span>
+                      <span className="about-hero__glass-cert">Certifié SAP</span>
                     </div>
                   </div>
                 </div>
@@ -107,22 +116,16 @@ export default function About() {
       <section className="about-presentation section">
         <div className="about-presentation__container container-narrow">
           <ScrollReveal className="about-presentation__text" direction="up">
-            <h2 className="section-label">Who We Are</h2>
-            <h3 className="section-heading">A Trusted Leader in ERP Consulting</h3>
+            <h2 className="section-label">Qui Sommes-Nous</h2>
+            <h3 className="section-heading">Un Leader de Confiance en Conseil ERP</h3>
             <p className="about-presentation__paragraph">
-              Founded with a vision to empower Moroccan and African businesses through
-              cutting-edge technology solutions, Merit Consulting Maroc has grown into a
-              trusted leader in ERP consulting and digital transformation.
+              Fondé avec la vision d&apos;autonomiser les entreprises marocaines et africaines grâce à des solutions technologiques de pointe, Merit Consulting Maroc est devenu un leader de confiance en conseil ERP et transformation digitale.
             </p>
             <p className="about-presentation__paragraph">
-              With over 40 years of expertise in management systems and 24 years of SAP
-              specialization, we bring unparalleled knowledge and experience to every
-              project.
+              Avec plus de 40 ans d&apos;expertise en systèmes de gestion et 24 ans de spécialisation SAP, nous apportons des connaissances et une expérience inégalées à chaque projet.
             </p>
             <p className="about-presentation__paragraph">
-              Our deep understanding of local business needs, combined with global SAP
-              expertise, makes us the ideal partner for companies looking to streamline
-              operations and accelerate growth.
+              Notre compréhension approfondie des besoins locaux des entreprises, combinée à une expertise SAP mondiale, fait de nous le partenaire idéal pour les entreprises souhaitant rationaliser leurs opérations et accélérer leur croissance.
             </p>
           </ScrollReveal>
         </div>
@@ -135,11 +138,9 @@ export default function About() {
             <div className="about-mvv__icon">
               <FiTarget />
             </div>
-            <h3>Our Mission</h3>
+            <h3>Notre Mission</h3>
             <p>
-              To empower businesses with innovative technology solutions that drive
-              operational excellence, sustainable growth, and competitive advantage in
-              the digital era.
+              Accompagner les entreprises avec des solutions technologiques innovantes qui favorisent l&apos;excellence opérationnelle, la croissance durable et l&apos;avantage concurrentiel à l&apos;ère du numérique.
             </p>
           </ScrollReveal>
 
@@ -147,11 +148,9 @@ export default function About() {
             <div className="about-mvv__icon">
               <FiEye />
             </div>
-            <h3>Our Vision</h3>
+            <h3>Notre Vision</h3>
             <p>
-              To be the leading digital transformation partner in Morocco and Africa,
-              recognized for our expertise, reliability, and commitment to client
-              success.
+              Être le partenaire de transformation digitale de référence au Maroc et en Afrique, reconnu pour notre expertise, notre fiabilité et notre engagement envers la réussite de nos clients.
             </p>
           </ScrollReveal>
 
@@ -159,7 +158,7 @@ export default function About() {
             <div className="about-mvv__icon">
               <FiHeart />
             </div>
-            <h3>Our Values</h3>
+            <h3>Nos Valeurs</h3>
             <ul className="about-mvv__values-list">
               {values.map((v) => (
                 <li key={v} className="about-mvv__value-item">
@@ -176,8 +175,8 @@ export default function About() {
       <section className="about-experience section">
         <div className="about-experience__container container">
           <ScrollReveal>
-            <h2 className="section-label">Our Journey</h2>
-            <h3 className="section-heading">40 Years of Historical Progression</h3>
+            <h2 className="section-label">Notre Parcours</h2>
+            <h3 className="section-heading">40 Ans de Progression Historique</h3>
           </ScrollReveal>
 
           <div className="about-timeline">
@@ -204,9 +203,9 @@ export default function About() {
       <section className="about-team section section--alternate">
         <div className="about-team__container container">
           <ScrollReveal>
-            <h2 className="section-label">Our Leadership</h2>
+            <h2 className="section-label">Notre Direction</h2>
             <p className="about-team__subtitle">
-              Meet the executive profiles driving Merit Consulting Maroc forward
+              Découvrez les profils exécutifs qui font avancer Merit Consulting Maroc
             </p>
           </ScrollReveal>
 
@@ -243,9 +242,9 @@ export default function About() {
       <section className="about-cta">
         <div className="about-cta__container container">
           <ScrollReveal>
-            <h2>Join the companies that trust Merit Consulting Maroc</h2>
+            <h2>Rejoignez les entreprises qui font confiance à Merit Consulting Maroc</h2>
             <Link to="/contact" className="about-cta__button">
-              Get in Touch <FiArrowRight />
+              Nous Contacter <FiArrowRight />
             </Link>
           </ScrollReveal>
         </div>
