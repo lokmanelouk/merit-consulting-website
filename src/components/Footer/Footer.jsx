@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import {
   FiLinkedin,
   FiFacebook,
-  FiTwitter,
   FiMail,
   FiMapPin,
   FiPhone,
@@ -29,10 +28,9 @@ const SERVICES = [
 ];
 
 const SOCIALS = [
-  { icon: <FiLinkedin />, href: '#', label: 'LinkedIn' },
-  { icon: <FiFacebook />, href: '#', label: 'Facebook' },
-  { icon: <FiTwitter />, href: '#', label: 'Twitter' },
-  { icon: <FiMail />, href: 'mailto:contact@meritconsulting.ma', label: 'Email' },
+  { icon: <FiLinkedin />, href: 'https://www.linkedin.com/company/merit-sa/', label: 'LinkedIn' },
+  { icon: <FiFacebook />, href: 'https://www.facebook.com/people/MERIT-SAP-consulting/100063140834548/', label: 'Facebook' },
+  { icon: <FiMail />, href: 'mailto:merit@merit.ma', label: 'Email' },
 ];
 
 export default function Footer() {
@@ -52,7 +50,7 @@ export default function Footer() {
 
           <p className="footer-description">
             Accompagnement des entreprises marocaines avec des solutions SAP de classe mondiale,
-            du conseil ERP et des services de transformation digitale depuis 2010.
+            du conseil ERP et des services de transformation digitale depuis 1986.
           </p>
 
           <div className="footer-socials">
@@ -105,18 +103,18 @@ export default function Footer() {
           <ul className="footer-list footer-contact-list">
             <li className="footer-contact-item">
               <FiMapPin className="footer-contact-icon" />
-              <span>123 Boulevard Mohammed V,<br />Casablanca, Maroc</span>
+              <span>193 Avenue Hassan II,<br />Casablanca, Maroc 20140.</span>
             </li>
             <li className="footer-contact-item">
               <FiPhone className="footer-contact-icon" />
-              <a href="tel:+212500000000" className="footer-link">
-                +212 5 00 00 00 00
+              <a href="tel:+212522264175" className="footer-link">
+                +212 522 26 41 75
               </a>
             </li>
             <li className="footer-contact-item">
               <FiMail className="footer-contact-icon" />
-              <a href="mailto:contact@meritconsulting.ma" className="footer-link">
-                contact@meritconsulting.ma
+              <a href="mailto:merit@merit.ma" className="footer-link">
+                merit@merit.ma
               </a>
             </li>
           </ul>

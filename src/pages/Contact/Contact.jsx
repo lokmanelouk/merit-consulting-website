@@ -8,7 +8,6 @@ import {
   FiSend,
   FiLinkedin,
   FiFacebook,
-  FiTwitter,
   FiCheckCircle,
   FiMap,
 } from 'react-icons/fi'
@@ -29,19 +28,19 @@ const contactDetails = [
   {
     icon: <FiMapPin />,
     label: 'Adresse',
-    value: '123 Boulevard Mohammed V, Casablanca, Maroc',
+    value: '193 Avenue Hassan II, Casablanca, Maroc 20140.',
   },
   {
     icon: <FiPhone />,
     label: 'Téléphone',
-    value: '+212 5 00 00 00 00',
-    href: 'tel:+212500000000',
+    value: '+212 522 26 41 75',
+    href: 'tel:+212522264175',
   },
   {
     icon: <FiMail />,
     label: 'E-mail',
-    value: 'contact@meritconsulting.ma',
-    href: 'mailto:contact@meritconsulting.ma',
+    value: 'merit@merit.ma',
+    href: 'mailto:merit@merit.ma',
   },
   {
     icon: <FiClock />,
@@ -51,9 +50,8 @@ const contactDetails = [
 ]
 
 const socialLinks = [
-  { icon: <FiLinkedin />, href: '#', label: 'LinkedIn' },
-  { icon: <FiFacebook />, href: '#', label: 'Facebook' },
-  { icon: <FiTwitter />, href: '#', label: 'Twitter' },
+  { icon: <FiLinkedin />, href: 'https://www.linkedin.com/company/merit-sa/', label: 'LinkedIn' },
+  { icon: <FiFacebook />, href: 'https://www.facebook.com/people/MERIT-SAP-consulting/100063140834548/', label: 'Facebook' },
 ]
 
 const initialFormState = {

@@ -27,6 +27,18 @@ import {
 } from 'react-icons/fi';
 import ScrollReveal from '../../components/ScrollReveal/ScrollReveal';
 import heroCasablanca from '../../assets/hero-casablanca.png';
+import jaoudaLogo from '../../assets/clients/jaouda.png';
+import oniLogo from '../../assets/clients/ONI.png';
+import dandyLogo from '../../assets/clients/Dindy.png';
+import samsungLogo from '../../assets/clients/Samsung.png';
+import engieLogo from '../../assets/clients/ENGIE.png';
+import cimrLogo from '../../assets/clients/CIMR.png';
+import s2mLogo from '../../assets/clients/s2m.png';
+import zalaghLogo from '../../assets/clients/Zalagh.png';
+import sapB1Logo from '../../assets/clients/SAPB1.png';
+import sqlServerLogo from '../../assets/clients/microsoft-sql-server.png';
+import sapHanaLogo from '../../assets/clients/SAP-S4HANA.png';
+import crystalLogo from '../../assets/clients/crystal_logo.png';
 import './Home.css';
 
 /* ── Data ─────────────────────────────────────────────────── */
@@ -240,19 +252,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ====== TECHNOLOGY PARTNERS BAR ====== */}
-      <section className="partner-bar">
-        <div className="container partner-bar__container">
-          <span className="partner-bar__title">Partenaires Technologiques :</span>
-          <div className="partner-bar__logos">
-            <span className="partner-logo-item">Partenaire SAP Gold</span>
-            <span className="partner-logo-item">Microsoft SQL Server</span>
-            <span className="partner-logo-item">SAP HANA</span>
-            <span className="partner-logo-item">SUSE Linux</span>
-            <span className="partner-logo-item">Crystal Reports</span>
-          </div>
-        </div>
-      </section>
+
 
       {/* ====== 2. ABOUT ====== */}
       <section className="section about">
@@ -374,85 +374,61 @@ export default function Home() {
               </div>
             </ScrollReveal>
 
-            {/* Dashboard Mockup/Illustration with Floating Animation */}
+            {/* Simplified Performance & Result Visual with Floating Cards */}
             <ScrollReveal className="sap-highlight__visual" delay={0.2}>
-              <motion.div 
-                className="dashboard-mockup"
-                animate={{
-                  y: [0, -10, 0]
-                }}
-                whileHover={{
-                  scale: 1.02
-                }}
-                transition={{
-                  y: {
-                    duration: 6,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  },
-                  scale: {
-                    duration: 0.3,
-                    ease: "easeOut"
-                  }
-                }}
-              >
-                {/* Mockup Browser Header */}
-                <div className="dashboard-mockup__header">
-                  <div className="dashboard-mockup__dots">
-                    <span className="dot dot--red" />
-                    <span className="dot dot--yellow" />
-                    <span className="dot dot--green" />
+              <div className="home-sap-visual">
+                {/* Card 1: Upward-sloping Growth Line */}
+                <motion.div 
+                  className="home-sap-card home-sap-card--chart"
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="home-sap-card__header">
+                    <span className="home-sap-card__label">Progression de la Performance</span>
+                    <FiTrendingUp className="home-sap-card__icon text-accent" />
                   </div>
-                  <div className="dashboard-mockup__title">Portail Live SAP B1</div>
-                </div>
-                
-                {/* Mockup Content */}
-                <div className="dashboard-mockup__body">
-                  <div className="dashboard-mockup__widgets">
-                    <div className="widget-card">
-                      <div className="widget-card__top">
-                        <span className="widget-card__label">Chiffre d'Affaires</span>
-                        <FiDollarSign className="widget-card__icon text-accent" />
-                      </div>
-                      <div className="widget-card__value">$428.4K</div>
-                      <div className="widget-card__growth text-success">+18.2% ce mois-ci</div>
-                    </div>
-                    
-                    <div className="widget-card">
-                      <div className="widget-card__top">
-                        <span className="widget-card__label">Commandes Actives</span>
-                        <FiPackage className="widget-card__icon text-primary" />
-                      </div>
-                      <div className="widget-card__value">148</div>
-                      <div className="widget-card__growth text-success">98.5% livrées à temps</div>
-                    </div>
+                  <div className="home-sap-card__chart">
+                    <svg viewBox="0 0 200 60" className="chart-svg-clean">
+                      <defs>
+                        <linearGradient id="home-chart-grad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.25"/>
+                          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.0"/>
+                        </linearGradient>
+                      </defs>
+                      <path d="M 0 50 Q 40 45 80 25 T 160 15 T 200 5 L 200 60 L 0 60 Z" fill="url(#home-chart-grad)" />
+                      <path d="M 0 50 Q 40 45 80 25 T 160 15 T 200 5" fill="none" stroke="var(--accent)" strokeWidth="3.5" strokeLinecap="round" />
+                      <circle cx="200" cy="5" r="4.5" fill="var(--white)" stroke="var(--accent)" strokeWidth="3" />
+                    </svg>
+                  </div>
+                </motion.div>
 
-                    <div className="widget-card widget-card--full">
-                      <div className="widget-card__top">
-                        <span className="widget-card__label">Croissance Opérationnelle (HANA Live)</span>
-                        <FiTrendingUp className="widget-card__icon text-accent" />
-                      </div>
-                      {/* Simple SVG Chart */}
-                      <div className="widget-card__chart">
-                        <svg viewBox="0 0 300 80" className="chart-svg">
-                           <defs>
-                            <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.4"/>
-                              <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.0"/>
-                            </linearGradient>
-                          </defs>
-                          <path d="M 0 60 Q 50 20 100 45 T 200 15 T 300 5 L 300 80 L 0 80 Z" fill="url(#chart-grad)" />
-                          <path d="M 0 60 Q 50 20 100 45 T 200 15 T 300 5" fill="none" stroke="var(--accent)" strokeWidth="3" />
-                          <circle cx="100" cy="45" r="4" fill="var(--primary)" stroke="var(--accent)" strokeWidth="2" />
-                          <circle cx="200" cy="15" r="4" fill="var(--primary)" stroke="var(--accent)" strokeWidth="2" />
-                          <circle cx="300" cy="5" r="4" fill="var(--primary)" stroke="var(--accent)" strokeWidth="2" />
-                        </svg>
-                      </div>
+                {/* Card 2: Percentage */}
+                <motion.div 
+                  className="home-sap-card home-sap-card--stat"
+                  animate={{ y: [0, -14, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <span className="home-sap-card__value">+35%</span>
+                  <span className="home-sap-card__desc">Efficacité Opérationnelle</span>
+                </motion.div>
+
+                {/* Card 3: Checkmark Status */}
+                <motion.div 
+                  className="home-sap-card home-sap-card--status"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <div className="home-sap-card__status-row">
+                    <div className="home-sap-card__status-icon">
+                      <FiCheckCircle />
                     </div>
+                    <span className="home-sap-card__status-text">Système 100% Intégré</span>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </ScrollReveal>
           </div>
         </div>
@@ -537,7 +513,7 @@ export default function Home() {
                 </div>
                 <div className="trust__indicator">
                   <FiAward className="trust__indicator-icon" />
-                  <span>Partenaire Certifié SAP Gold</span>
+                  <span>Expert en solutions SAP</span>
                 </div>
                 <div className="trust__indicator">
                   <FiGlobe className="trust__indicator-icon" />
@@ -545,6 +521,60 @@ export default function Home() {
                 </div>
               </div>
             </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== TECHNOLOGY PARTNERS BAR ====== */}
+      <section className="partner-bar">
+        <div className="container partner-bar__container">
+          <div className="partner-bar__title">PARTENAIRES</div>
+          <div className="partner-bar__logos">
+            <div className="partner-logo-item">
+              <img src={sapB1Logo} alt="SAP Business One" />
+            </div>
+            <div className="partner-logo-item">
+              <img src={sqlServerLogo} alt="Microsoft SQL Server" />
+            </div>
+            <div className="partner-logo-item">
+              <img src={sapHanaLogo} alt="SAP HANA" />
+            </div>
+            <div className="partner-logo-item">
+              <img src={crystalLogo} alt="Crystal Reports" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ====== CLIENTS LOGO BAR ====== */}
+      <section className="client-bar">
+        <div className="container client-bar__container">
+          <div className="client-bar__title">ILS NOUS FONT CONFIANCE</div>
+          <div className="client-bar__logos">
+            <div className="client-logo-item">
+              <img src={jaoudaLogo} alt="Jaouda" />
+            </div>
+            <div className="client-logo-item">
+              <img src={oniLogo} alt="ONI" />
+            </div>
+            <div className="client-logo-item">
+              <img src={dandyLogo} alt="Dandy" />
+            </div>
+            <div className="client-logo-item">
+              <img src={samsungLogo} alt="Samsung" />
+            </div>
+            <div className="client-logo-item">
+              <img src={engieLogo} alt="Engie" />
+            </div>
+            <div className="client-logo-item">
+              <img src={cimrLogo} alt="CIMR" />
+            </div>
+            <div className="client-logo-item">
+              <img src={s2mLogo} alt="S2M" />
+            </div>
+            <div className="client-logo-item">
+              <img src={zalaghLogo} alt="Zalagh Holding" />
+            </div>
           </div>
         </div>
       </section>

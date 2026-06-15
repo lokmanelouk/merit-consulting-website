@@ -268,74 +268,47 @@ export default function SapBusinessOne() {
 
           {/* Right Column — Mockup Dashboard */}
           <ScrollReveal className="sap-benefits__right" direction="left" delay={0.2}>
-            <div className="sap-dashboard-mockup">
-              <div className="sap-dashboard-mockup__header">
-                <div className="sap-dashboard-mockup__dots">
-                  <span className="sap-dashboard-mockup__dot sap-dashboard-mockup__dot--red" />
-                  <span className="sap-dashboard-mockup__dot sap-dashboard-mockup__dot--yellow" />
-                  <span className="sap-dashboard-mockup__dot sap-dashboard-mockup__dot--green" />
+            <div className="sap-performance-visual">
+              {/* Card 1: Scalable Growth Chart */}
+              <div className="sap-perf-card sap-perf-card--chart">
+                <span className="sap-perf-card__title">Évolutivité du Système</span>
+                <div className="sap-perf-card__chart-wrapper">
+                  <svg viewBox="0 0 200 80" className="sap-perf-chart">
+                    <defs>
+                      <linearGradient id="blue-grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#1F6FB2" stopOpacity="0.3"/>
+                        <stop offset="100%" stopColor="#1F6FB2" stopOpacity="0.0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M 15 70 C 50 65, 80 40, 110 45 C 140 50, 165 15, 185 10 L 185 80 L 15 80 Z" fill="url(#blue-grad)" />
+                    <path d="M 15 70 C 50 65, 80 40, 110 45 C 140 50, 165 15, 185 10" fill="none" stroke="#1F6FB2" strokeWidth="4" strokeLinecap="round" />
+                    <circle cx="15" cy="70" r="4" fill="#0A2463" />
+                    <circle cx="185" cy="10" r="5" fill="#1F6FB2" />
+                    <circle cx="185" cy="10" r="10" fill="none" stroke="#1F6FB2" strokeOpacity="0.4" strokeWidth="2" className="ping-circle" />
+                    <text x="12" y="58" fill="#0A2463" fontSize="8" fontWeight="bold" fontFamily="Inter, sans-serif">PME</text>
+                    <text x="105" y="14" fill="#1F6FB2" fontSize="8" fontWeight="bold" fontFamily="Inter, sans-serif">GRAND COMPTE</text>
+                  </svg>
                 </div>
-                <div className="sap-dashboard-mockup__title-bar">SAP Business One - Tableau de Bord Interactif</div>
-                <div className="sap-dashboard-mockup__status">Système Actif</div>
               </div>
-              <div className="sap-dashboard-mockup__body">
-                {/* KPIs Row */}
-                <div className="sap-dashboard-mockup__kpis">
-                  <div className="sap-dashboard-mockup__kpi">
-                    <span className="sap-dashboard-mockup__kpi-label">Chiffre d'Affaires</span>
-                    <span className="sap-dashboard-mockup__kpi-value">€142.5K</span>
-                    <span className="sap-dashboard-mockup__kpi-trend sap-dashboard-mockup__kpi-trend--up">+12.4%</span>
-                  </div>
-                  <div className="sap-dashboard-mockup__kpi">
-                    <span className="sap-dashboard-mockup__kpi-label">Commandes Actives</span>
-                    <span className="sap-dashboard-mockup__kpi-value">342</span>
-                    <span className="sap-dashboard-mockup__kpi-trend sap-dashboard-mockup__kpi-trend--neutral">Stable</span>
-                  </div>
-                  <div className="sap-dashboard-mockup__kpi">
-                    <span className="sap-dashboard-mockup__kpi-label">Articles en Rupture</span>
-                    <span className="sap-dashboard-mockup__kpi-value">5</span>
-                    <span className="sap-dashboard-mockup__kpi-trend sap-dashboard-mockup__kpi-trend--down">-3%</span>
-                  </div>
-                </div>
-                
-                {/* Chart & Activity Row */}
-                <div className="sap-dashboard-mockup__content">
-                  <div className="sap-dashboard-mockup__chart-panel">
-                    <div className="sap-dashboard-mockup__panel-header">Performance Mensuelle du Chiffre d'Affaires</div>
-                    <div className="sap-dashboard-mockup__chart">
-                      <div className="sap-dashboard-mockup__bar" style={{ height: '45%' }}><span>T1</span></div>
-                      <div className="sap-dashboard-mockup__bar" style={{ height: '65%' }}><span>T2</span></div>
-                      <div className="sap-dashboard-mockup__bar sap-dashboard-mockup__bar--active" style={{ height: '90%' }}><span>T3</span></div>
-                      <div className="sap-dashboard-mockup__bar" style={{ height: '75%' }}><span>T4</span></div>
-                    </div>
-                  </div>
-                  <div className="sap-dashboard-mockup__list-panel">
-                    <div className="sap-dashboard-mockup__panel-header">Activités ERP en Temps Réel</div>
-                    <div className="sap-dashboard-mockup__list">
-                      <div className="sap-dashboard-mockup__list-item">
-                        <div className="sap-dashboard-mockup__item-indicator" />
-                        <div className="sap-dashboard-mockup__item-details">
-                          <span className="sap-dashboard-mockup__item-title">Commande d'achat BC-1029</span>
-                          <span className="sap-dashboard-mockup__item-time">Il y a 5 min</span>
-                        </div>
-                      </div>
-                      <div className="sap-dashboard-mockup__list-item">
-                        <div className="sap-dashboard-mockup__item-indicator" />
-                        <div className="sap-dashboard-mockup__item-details">
-                          <span className="sap-dashboard-mockup__item-title">Fiche Client CRM Créée</span>
-                          <span className="sap-dashboard-mockup__item-time">Il y a 15 min</span>
-                        </div>
-                      </div>
-                      <div className="sap-dashboard-mockup__list-item">
-                        <div className="sap-dashboard-mockup__item-indicator" />
-                        <div className="sap-dashboard-mockup__item-details">
-                          <span className="sap-dashboard-mockup__item-title">Rapport de Stock Généré</span>
-                          <span className="sap-dashboard-mockup__item-time">Il y a 1 heure</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
+              {/* Card 2: Unified Management */}
+              <div className="sap-perf-card sap-perf-card--unified">
+                <span className="sap-perf-card__title">Gestion Unifiée</span>
+                <span className="sap-perf-card__value-medium">100% Connecté</span>
+                <span className="sap-perf-card__subtext">Ventes, Finance & Stocks synchronisés</span>
+              </div>
+
+              {/* Card 3: Processing Time (Fast ROI) */}
+              <div className="sap-perf-card sap-perf-card--roi">
+                <span className="sap-perf-card__title">Temps de Traitement</span>
+                <span className="sap-perf-card__value-large">-65%</span>
+                <span className="sap-perf-card__subtext">Automatisation des rapports financiers</span>
+              </div>
+
+              {/* Infrastructure Tag */}
+              <div className="sap-performance-visual__badge">
+                <FiCloud className="sap-badge-icon" />
+                <span>Mode : Cloud Hybride</span>
               </div>
             </div>
           </ScrollReveal>

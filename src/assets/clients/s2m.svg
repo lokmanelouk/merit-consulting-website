@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" width="100%" height="100%">
+  <text x="35" y="36" font-family="system-ui, sans-serif" font-weight="900" font-size="32" fill="#E31B23">S</text>
+  <text x="57" y="36" font-family="system-ui, sans-serif" font-weight="900" font-size="32" fill="#004B87">2</text>
+  <text x="79" y="36" font-family="system-ui, sans-serif" font-weight="900" font-size="32" fill="#E31B23">M</text>
+  <rect x="105" y="16" width="15" height="20" fill="#004B87" rx="2" />
+  <circle cx="112.5" cy="26" r="3" fill="#ffffff" />
+</svg>

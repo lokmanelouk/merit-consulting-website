@@ -307,222 +307,172 @@
   line-height: 1.6;
 }
 
-/* --- Executive Cockpit Dashboard Mockup --- */
-.sap-dashboard-mockup {
-  background: var(--white);
-  border: 1px solid rgba(10, 36, 99, 0.08);
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(10, 36, 99, 0.06);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Inter', sans-serif;
-  backdrop-filter: blur(12px);
-}
-
-.sap-dashboard-mockup__header {
-  background: var(--dark);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.sap-dashboard-mockup__dots {
-  display: flex;
-  gap: 6px;
-}
-
-.sap-dashboard-mockup__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.sap-dashboard-mockup__dot--red { background: #FF5F56; }
-.sap-dashboard-mockup__dot--yellow { background: #FFBD2E; }
-.sap-dashboard-mockup__dot--green { background: #27C93F; }
-
-.sap-dashboard-mockup__title-bar {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.sap-dashboard-mockup__status {
-  font-size: 0.7rem;
-  font-weight: 700;
-  background: rgba(39, 201, 63, 0.15);
-  color: #27C93F;
-  padding: 3px 8px;
-  border-radius: 50px;
-}
-
-.sap-dashboard-mockup__body {
-  padding: 24px;
-  background: var(--light);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.sap-dashboard-mockup__kpis {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.sap-dashboard-mockup__kpi {
-  background: var(--white);
-  border: 1px solid rgba(10, 36, 99, 0.05);
-  border-radius: 10px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
+/* --- SAP Performance & Growth Visual --- */
+.sap-performance-visual {
   position: relative;
+  width: 100%;
+  height: 380px;
+  background: radial-gradient(circle at 50% 50%, rgba(31, 111, 178, 0.08) 0%, transparent 70%);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
 }
 
-.sap-dashboard-mockup__kpi-label {
-  font-size: 0.68rem;
+.sap-perf-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(10, 36, 99, 0.05);
+  padding: 20px;
+  position: absolute;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sap-perf-card:hover {
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 12px 40px rgba(10, 36, 99, 0.1);
+  border-color: rgba(31, 111, 178, 0.3);
+}
+
+/* Card 1: Scalable Growth Chart */
+.sap-perf-card--chart {
+  width: 280px;
+  height: 180px;
+  top: 15px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: sapFloatCard1 6s ease-in-out infinite alternate;
+}
+
+.sap-perf-card__title {
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--text-light);
+  color: var(--primary);
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.sap-perf-card__chart-wrapper {
+  width: 100%;
+  height: 100px;
+  margin-top: 5px;
+}
+
+.sap-perf-chart {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Card 2: Unified Management */
+.sap-perf-card--unified {
+  width: 210px;
+  height: 120px;
+  bottom: 25px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  animation: sapFloatCard2 8s ease-in-out infinite alternate;
+}
+
+.sap-perf-card__value-medium {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1F6FB2; /* Merit Blue */
+  line-height: 1.2;
   margin-bottom: 4px;
 }
 
-.sap-dashboard-mockup__kpi-value {
-  font-size: 1.15rem;
+/* Card 3: Processing Time (Fast ROI) */
+.sap-perf-card--roi {
+  width: 220px;
+  height: 125px;
+  bottom: 90px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 3;
+  animation: sapFloatCard3 7s ease-in-out infinite alternate;
+}
+
+.sap-perf-card__value-large {
+  font-size: 2.2rem;
   font-weight: 800;
-  color: var(--dark);
+  color: #1F6FB2; /* Merit Blue */
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-.sap-dashboard-mockup__kpi-trend {
-  font-size: 0.65rem;
-  font-weight: 700;
-  align-self: flex-start;
-  margin-top: 4px;
-  padding: 2px 6px;
-  border-radius: 4px;
-}
-
-.sap-dashboard-mockup__kpi-trend--up {
-  color: #27C93F;
-  background: rgba(39, 201, 63, 0.08);
-}
-
-.sap-dashboard-mockup__kpi-trend--neutral {
-  color: var(--text-light);
-  background: rgba(108, 117, 125, 0.08);
-}
-
-.sap-dashboard-mockup__kpi-trend--down {
-  color: #FF5F56;
-  background: rgba(255, 95, 86, 0.08);
-}
-
-.sap-dashboard-mockup__content {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 16px;
-}
-
-.sap-dashboard-mockup__chart-panel,
-.sap-dashboard-mockup__list-panel {
-  background: var(--white);
-  border: 1px solid rgba(10, 36, 99, 0.05);
-  border-radius: 10px;
-  padding: 14px;
-}
-
-.sap-dashboard-mockup__panel-header {
+.sap-perf-card__subtext {
   font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-light);
+  line-height: 1.3;
+}
+
+/* Infrastructure Tag */
+.sap-performance-visual__badge {
+  position: absolute;
+  bottom: -15px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(31, 111, 178, 0.15);
+  border-radius: 50px;
+  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: var(--dark);
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 14px;
-  border-bottom: 1px solid var(--gray);
-  padding-bottom: 6px;
+  box-shadow: 0 4px 16px rgba(10, 36, 99, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10;
 }
 
-.sap-dashboard-mockup__chart {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  height: 90px;
-  padding-top: 10px;
+.sap-badge-icon {
+  font-size: 0.9rem;
+  color: #1F6FB2;
 }
 
-.sap-dashboard-mockup__bar {
-  width: 14px;
-  background: rgba(0, 180, 216, 0.25);
-  border-radius: 3px 3px 0 0;
-  position: relative;
-  transition: background 0.3s ease;
+/* Floating Animations */
+@keyframes sapFloatCard1 {
+  0% { transform: translateY(0) rotate(0.5deg); }
+  100% { transform: translateY(-12px) rotate(-0.5deg); }
 }
 
-.sap-dashboard-mockup__bar--active {
-  background: var(--primary);
+@keyframes sapFloatCard2 {
+  0% { transform: translateY(0) rotate(-0.5deg); }
+  100% { transform: translateY(-8px) rotate(0.5deg); }
 }
 
-.sap-dashboard-mockup__bar span {
-  position: absolute;
-  bottom: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.58rem;
-  font-weight: 700;
-  color: var(--text-light);
+@keyframes sapFloatCard3 {
+  0% { transform: translateY(0) rotate(0.3deg); }
+  100% { transform: translateY(-10px) rotate(-0.3deg); }
 }
 
-.sap-dashboard-mockup__list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+/* Ping circle in SVG chart */
+.ping-circle {
+  transform-origin: 185px 10px;
+  animation: svgPing 2s ease-in-out infinite;
 }
 
-.sap-dashboard-mockup__list-item {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.sap-dashboard-mockup__item-indicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-.sap-dashboard-mockup__list-item:nth-child(2) .sap-dashboard-mockup__item-indicator {
-  background: var(--primary-light);
-}
-
-.sap-dashboard-mockup__list-item:nth-child(3) .sap-dashboard-mockup__item-indicator {
-  background: #27C93F;
-}
-
-.sap-dashboard-mockup__item-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.sap-dashboard-mockup__item-title {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--dark);
-  line-height: 1.2;
-}
-
-.sap-dashboard-mockup__item-time {
-  font-size: 0.58rem;
-  color: var(--text-light);
-  margin-top: 1px;
+@keyframes svgPing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
 }
 
 /* ============================================================
@@ -873,6 +823,33 @@
   }
 }
 
+@media (max-width: 580px) {
+  .sap-performance-visual {
+    height: auto;
+    padding: 20px 0;
+    gap: 16px;
+    background: transparent;
+  }
+  
+  .sap-perf-card {
+    position: static;
+    width: 100% !important;
+    height: auto !important;
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  .sap-perf-card--chart {
+    height: 180px !important;
+  }
+
+  .sap-performance-visual__badge {
+    position: static !important;
+    margin-top: 10px;
+    align-self: center;
+  }
+}
+
 @media (max-width: 480px) {
   .sap-hero__title {
     font-size: 1.8rem;
@@ -891,14 +868,5 @@
   .sap-modules__tab {
     padding: 12px 18px;
     font-size: 0.88rem;
-  }
-
-  .sap-dashboard-mockup__content {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .sap-dashboard-mockup__kpis {
-    grid-template-columns: 1fr;
   }
 }

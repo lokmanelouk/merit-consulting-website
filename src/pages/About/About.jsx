@@ -84,7 +84,7 @@ export default function About() {
           <div className="about-hero__left">
             <h1 className="about-hero__title">À Propos de Merit Consulting Maroc</h1>
             <p className="about-hero__subtitle">
-              Des décennies d&apos;expérience au service de l&apos;évolution des entreprises marocaines.
+              Depuis 1986, des décennies d&apos;expérience au service de l&apos;évolution des entreprises marocaines.
             </p>
           </div>
           <div className="about-hero__right">

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50" width="100%" height="100%">
+  <path d="M 20 10 L 35 25 L 20 40 Z" fill="#2E7D32" />
+  <path d="M 30 10 L 45 25 L 30 40 Z" fill="#81C784" />
+  <text x="95" y="26" font-family="system-ui, sans-serif" font-weight="bold" font-size="16" fill="#1B5E20" text-anchor="middle">ZALAGH</text>
+  <text x="95" y="40" font-family="system-ui, sans-serif" font-weight="normal" font-size="10" fill="#2E7D32" text-anchor="middle" letter-spacing="1.5">HOLDING</text>
+</svg>

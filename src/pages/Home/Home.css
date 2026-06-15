@@ -533,7 +533,7 @@
 .sap-highlight__feature {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 12px; /* Refined breathing room from checkmark */
   font-size: var(--font-size-sm);
   font-weight: 500;
   color: var(--text);
@@ -547,122 +547,133 @@
 
 .sap-highlight__actions {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  gap: var(--space-lg); /* gap-6 equivalent */
 }
 
-/* SAP dashboard mockup */
+/* SAP performance visual layout with floating glass cards */
 .sap-highlight__visual {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.dashboard-mockup {
+.home-sap-visual {
+  position: relative;
   width: 100%;
   max-width: 440px;
-  background: var(--white);
+  height: 380px;
+  margin: 0 auto;
+}
+
+.home-sap-card {
+  background: rgba(255, 255, 255, 0.7); /* glass effect white background */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-2xl);
-  border: 1px solid rgba(var(--primary-rgb), 0.08);
-  overflow: hidden;
+  padding: var(--space-xl);
+  box-shadow: 0 15px 35px rgba(var(--primary-rgb), 0.08); /* clean subtle shadow */
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
   will-change: transform;
 }
 
-.dashboard-mockup__header {
-  display: flex;
-  align-items: center;
-  padding: var(--space-md) var(--space-lg);
-  background: var(--light);
-  border-bottom: 1px solid var(--gray);
+.home-sap-card:hover {
+  box-shadow: 0 20px 45px rgba(var(--primary-rgb), 0.12);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
-.dashboard-mockup__dots {
-  display: flex;
-  gap: 6px;
+.home-sap-card--chart {
+  top: 10px;
+  z-index: 2;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dot--red { background-color: #ff5f56; }
-.dot--yellow { background-color: #ffbd2e; }
-.dot--green { background-color: #27c93f; }
-
-.dashboard-mockup__title {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  color: var(--text-light);
-  margin-left: var(--space-lg);
-}
-
-.dashboard-mockup__body {
-  padding: var(--space-xl);
-}
-
-.dashboard-mockup__widgets {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-md);
-}
-
-.widget-card {
-  background: var(--light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md) var(--space-lg);
-  border: 1px solid rgba(var(--primary-rgb), 0.04);
-}
-
-.widget-card--full {
-  grid-column: span 2;
-}
-
-.widget-card__top {
+.home-sap-card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
-.widget-card__label {
+.home-sap-card__label {
   font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   color: var(--text-light);
-  font-weight: 500;
 }
 
-.widget-card__icon {
-  font-size: 1.15rem;
+.home-sap-card__icon {
+  font-size: 1.25rem;
+  color: var(--accent);
 }
 
-.text-accent { color: var(--accent); }
-.text-primary { color: var(--primary-light); }
-.text-success { color: var(--success); }
-
-.widget-card__value {
-  font-size: var(--font-size-xl);
-  font-weight: 800;
-  color: var(--dark);
-  line-height: 1.1;
-  margin-bottom: var(--space-xs);
+.home-sap-card__chart {
+  height: 70px;
 }
 
-.widget-card__growth {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-}
-
-.widget-card__chart {
-  height: 80px;
-  margin-top: var(--space-sm);
-}
-
-.chart-svg {
+.chart-svg-clean {
   width: 100%;
   height: 100%;
+  overflow: visible;
+}
+
+.home-sap-card--stat {
+  bottom: 80px;
+  left: -20px;
+  width: 210px;
+  z-index: 3;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.home-sap-card__value {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--primary-light);
+  line-height: 1;
+}
+
+.home-sap-card__desc {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+
+.home-sap-card--status {
+  bottom: 20px;
+  right: -25px;
+  left: auto;
+  width: 220px;
+  z-index: 4;
+  padding: var(--space-lg);
+}
+
+.home-sap-card__status-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.home-sap-card__status-icon {
+  font-size: 1.5rem;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-sap-card__status-text {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--primary-dark);
 }
 
 /* Testimonials nav & style adjustments */
@@ -980,13 +991,25 @@
     grid-template-columns: 1fr;
   }
 
-  .dashboard-mockup {
-    margin: 0 auto;
-    max-width: 100%;
+  .sap-highlight__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
   }
 
-  .widget-card__value {
-    font-size: var(--font-size-lg);
+  .home-sap-visual {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+    margin: var(--space-xl) auto 0;
+  }
+
+  .home-sap-card {
+    position: static;
+    width: 100%;
+    transform: none !important;
   }
 
   .trust__testimonial {
@@ -1030,48 +1053,75 @@
    Website Consolidation & Premium Refinement
    ============================================================ */
 
-/* 1. Technology Partners Bar */
+/* 1. Technology Partners Bar & Client Bar */
 .partner-bar {
-  background: var(--white);
-  padding: var(--space-xl) 0;
+  background: #F9FAFB;
+  padding: var(--space-xl) 0 var(--space-md) 0;
   border-top: 1px solid rgba(var(--primary-rgb), 0.06);
+}
+
+.client-bar {
+  background: #F9FAFB;
+  padding: var(--space-md) 0 var(--space-xl) 0;
   border-bottom: 1px solid rgba(var(--primary-rgb), 0.06);
 }
 
-.partner-bar__container {
+.partner-bar__container,
+.client-bar__container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: var(--space-lg);
 }
 
-.partner-bar__title {
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  color: var(--text-light);
+.partner-bar__title,
+.client-bar__title {
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.15em; /* tracking-widest */
+  color: #9CA3AF; /* gray-400 */
+  font-weight: 600;
+  text-align: center;
 }
 
-.partner-bar__logos {
+.partner-bar__logos,
+.client-bar__logos {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: var(--space-xl);
+  width: 100%;
 }
 
-.partner-logo-item {
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  color: var(--text-lighter);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: color var(--transition-base);
+.partner-logo-item,
+.client-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  transition: transform 0.3s ease-in-out;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-.partner-logo-item:hover {
-  color: var(--text-light);
+.partner-logo-item img,
+.client-logo-item img {
+  max-height: 45px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+  border: none;
+  filter: none;
+  opacity: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.partner-logo-item:hover,
+.client-logo-item:hover {
+  transform: translateY(-2px);
 }
 
 /* 2. Casablanca Skyline Visual Wrapper */
@@ -1147,16 +1197,18 @@
   color: var(--white);
 }
 
-/* 5. Responsive Partner Bar */
+/* 5. Responsive Partner & Client Bar */
 @media (max-width: 768px) {
-  .partner-bar__container {
+  .partner-bar__container,
+  .client-bar__container {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: var(--space-md);
   }
   
-  .partner-bar__logos {
+  .partner-bar__logos,
+  .client-bar__logos {
     justify-content: center;
     gap: var(--space-lg);
   }
