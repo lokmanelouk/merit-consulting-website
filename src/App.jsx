@@ -9,6 +9,7 @@ import About from './pages/About/About'
 import Services from './pages/Services/Services'
 import SapBusinessOne from './pages/SapBusinessOne/SapBusinessOne'
 import Contact from './pages/Contact/Contact'
+import NotFound from './pages/NotFound/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -35,6 +36,7 @@ function App() {
             <Route path="/services" element={<PageWrapper><Services /></PageWrapper>} />
             <Route path="/sap-business-one" element={<PageWrapper><SapBusinessOne /></PageWrapper>} />
             <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
+            <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
           </Routes>
         </AnimatePresence>
       </main>

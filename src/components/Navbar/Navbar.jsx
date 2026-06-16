@@ -46,12 +46,14 @@ export default function Navbar() {
     path === '/' ? pathname === '/' : pathname.startsWith(path);
 
   const normalizedPath = pathname.replace(/\/$/, '').toLowerCase();
-  const isSolidPage = normalizedPath === '/contact' || normalizedPath === '/services';
+  const validPaths = ['', '/', '/about', '/services', '/sap-business-one', '/contact'];
+  const isNotFound = !validPaths.includes(normalizedPath);
+  const isSolidPage = normalizedPath === '/contact' || normalizedPath === '/services' || isNotFound;
   const forceSolid = scrolled || isSolidPage;
 
   return (
     <>
-      <nav className={`navbar ${forceSolid ? 'navbar--scrolled' : ''}`}>
+      <nav className={`navbar ${forceSolid ? 'navbar--scrolled' : ''} ${isNotFound ? 'navbar--notfound' : ''}`}>
         <div className="navbar-container container">
           {/* ── Logo ── */}
           <Logo isDarkBg={!forceSolid} className="navbar-logo" />

@@ -28,7 +28,7 @@ const contactDetails = [
   {
     icon: <FiMapPin />,
     label: 'Adresse',
-    value: '193 Avenue Hassan II, Casablanca, Maroc 20140.',
+    value: '193 Avenue Hassan II, Casablanca 20140',
   },
   {
     icon: <FiPhone />,
@@ -399,11 +399,10 @@ function Contact() {
       <section className="contact-map">
         <div className="contact-map__fullwidth">
           <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106337.89312529815!2d-7.669394665427181!3d33.57240317377546!2m3!1f0!2f0!3f0!2m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2s!4v1718118000000!5m2!1sen!2s" 
+            src="https://maps.google.com/maps?q=33.5835393,-7.6232254&z=19&output=embed" 
             width="100%" 
             height="450" 
-            style={{ border: 0, filter: 'grayscale(100%) opacity(0.85)' }} 
-            allowFullScreen="" 
+            allowFullScreen={true} 
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
             title="Plan d'accès Merit Consulting Casablanca"

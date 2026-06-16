@@ -19,12 +19,12 @@ const QUICK_LINKS = [
 ];
 
 const SERVICES = [
-  'Implémentation SAP',
-  'Conseil ERP',
-  'Développement Logiciel',
-  'Intégrations sur Mesure',
-  'Support Technique',
-  'Formation Utilisateurs',
+  { label: 'Implémentation SAP', path: '/services#sap-implementation' },
+  { label: 'Conseil ERP', path: '/services#erp-consulting' },
+  { label: 'Développement Logiciel', path: '/services#software-development' },
+  { label: 'Intégrations sur Mesure', path: '/services#custom-integrations' },
+  { label: 'Support Technique', path: '/services#technical-support' },
+  { label: 'Formation Utilisateurs', path: '/services#user-training' },
 ];
 
 const SOCIALS = [
@@ -88,9 +88,9 @@ export default function Footer() {
           <h4 className="footer-heading">Nos Services</h4>
           <ul className="footer-list">
             {SERVICES.map((service) => (
-              <li key={service}>
-                <Link to="/services" className="footer-link">
-                  {service}
+              <li key={service.label}>
+                <Link to={service.path} className="footer-link">
+                  {service.label}
                 </Link>
               </li>
             ))}
@@ -103,7 +103,7 @@ export default function Footer() {
           <ul className="footer-list footer-contact-list">
             <li className="footer-contact-item">
               <FiMapPin className="footer-contact-icon" />
-              <span>193 Avenue Hassan II,<br />Casablanca, Maroc 20140.</span>
+              <span>193 Avenue Hassan II,<br />Casablanca 20140</span>
             </li>
             <li className="footer-contact-item">
               <FiPhone className="footer-contact-icon" />

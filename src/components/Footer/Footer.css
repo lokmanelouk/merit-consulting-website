@@ -23,7 +23,8 @@
 }
 
 .footer-logo {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   margin-bottom: var(--space-lg);
   text-decoration: none;
 }

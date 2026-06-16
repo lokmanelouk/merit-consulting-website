@@ -1,0 +1,102 @@
+.notfound-page {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align elements starting from top to prevent centering overlap */
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F7FF 100%);
+  padding: 10rem var(--space-xl) var(--space-4xl); /* pt-40 (160px) to clear the 80px navbar and add breathing room */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.notfound-page__bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(10, 36, 99, 0.35) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(10, 36, 99, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 36, 99, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px, 40px 40px, 40px 40px;
+  animation: notfoundPatternDrift 20s linear infinite;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes notfoundPatternDrift {
+  0%   { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: 32px 32px, 40px 40px, 40px 40px; }
+}
+
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  position: relative;
+  z-index: 2;
+}
+
+.notfound-title {
+  font-size: 9.5rem; /* Large text size clearly separated */
+  font-weight: 900;
+  color: #E5E7EB; /* Light gray color */
+  line-height: 1;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.05em;
+  user-select: none;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+
+.notfound-subtitle {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--primary); /* Merit Blue base */
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.notfound-text {
+  font-size: var(--font-size-md);
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-2xl);
+  max-width: 460px;
+}
+
+/* Solid Merit Blue CTA button style matching home primary actions */
+.notfound-cta {
+  background: #1F6FB2 !important;
+  border: none !important; /* Remove custom border so height matches exactly home primary actions */
+  color: var(--white) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important;
+  transition: all var(--transition-base) !important;
+}
+
+.notfound-cta:hover {
+  background: #145387 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+@media (max-width: 768px) {
+  .notfound-page {
+    padding-top: 8rem; /* pt-32 (128px) */
+  }
+
+  .notfound-title {
+    font-size: 6.5rem;
+  }
+  
+  .notfound-subtitle {
+    font-size: var(--font-size-xl);
+  }
+  
+  .notfound-text {
+    font-size: var(--font-size-base);
+    padding: 0 var(--space-md);
+  }
+}
