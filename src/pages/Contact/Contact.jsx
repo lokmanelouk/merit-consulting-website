@@ -45,7 +45,7 @@ const contactDetails = [
   {
     icon: <FiClock />,
     label: 'Heures de travail',
-    value: 'Lundi - Vendredi : 9h00 - 18h00',
+    value: 'Lundi - Vendredi : 9h00 - 17h00',
   },
 ]
 
@@ -398,12 +398,12 @@ function Contact() {
       {/* ===== Google Maps Integration (Full-width) ===== */}
       <section className="contact-map">
         <div className="contact-map__fullwidth">
-          <iframe 
-            src="https://maps.google.com/maps?q=33.5835393,-7.6232254&z=19&output=embed" 
-            width="100%" 
-            height="450" 
-            allowFullScreen={true} 
-            loading="lazy" 
+          <iframe
+            src="https://maps.google.com/maps?q=33.5835393,-7.6232254&z=19&output=embed"
+            width="100%"
+            height="450"
+            allowFullScreen={true}
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Plan d'accès Merit Consulting Casablanca"
           />

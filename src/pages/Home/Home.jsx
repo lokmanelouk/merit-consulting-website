@@ -241,11 +241,11 @@ export default function Home() {
               Merit Consulting Maroc accompagne les entreprises avec des solutions ERP innovantes et des systèmes de management performants.
             </motion.p>
             <motion.div className="hero__actions" variants={heroItemVariants}>
-              <Link to="/contact" className="btn btn-accent btn-lg">
-                Nous Contacter
-              </Link>
-              <Link to="/contact?subject=sap-business-one" className="btn btn-outline btn-lg">
+              <Link to="/contact?subject=sap-business-one" className="btn btn-accent btn-lg">
                 Demander une Démo
+              </Link>
+              <Link to="/contact" className="btn btn-outline btn-lg">
+                Nous Contacter
               </Link>
             </motion.div>
           </motion.div>

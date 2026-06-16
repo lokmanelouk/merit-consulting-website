@@ -7,7 +7,6 @@ import {
   FiArrowRight, 
   FiChevronRight, 
   FiLinkedin, 
-  FiTwitter, 
   FiMail,
   FiUser 
 } from 'react-icons/fi';
@@ -39,29 +38,37 @@ const milestones = [
 
 const teamMembers = [
   {
-    name: 'Ahmed Benali',
-    title: 'PDG & Fondateur',
-    bio: 'Plus de 30 ans d\'expérience dans le conseil IT et les solutions d\'entreprise.',
-    gradient: 'linear-gradient(135deg, #0A2463, #1E56A0)',
+    name: 'Abdelilah SEBTI',
+    title: 'Directeur Général',
+    bio: 'Leader stratégique pilotant la vision et la croissance de Merit depuis 1986.',
+    gradient: 'linear-gradient(135deg, #1F6FB2 0%, #0A2463 100%)',
+    linkedin: 'https://www.linkedin.com/company/merit-sa/',
+    email: 'mailto:a.sebti@merit.ma'
   },
   {
-    name: 'Sara El Mansouri',
-    title: 'Responsable Pratique SAP',
-    bio: 'Consultante certifiée SAP avec plus de 15 ans d\'expérience en implémentation.',
-    gradient: 'linear-gradient(135deg, #0096C7, #00B4D8)',
+    name: 'Driss LOUKHMI',
+    title: 'Directeur Technique (Software & Consulting)',
+    bio: 'Expert en architecture logicielle et responsable de la mise en œuvre des solutions SAP.',
+    gradient: 'linear-gradient(135deg, #1F6FB2 0%, #0A2463 100%)',
+    linkedin: 'https://www.linkedin.com/company/merit-sa/',
+    email: 'mailto:d.loukhmi@merit.ma'
   },
   {
-    name: 'Karim Tazi',
-    title: 'Directeur Technique',
-    bio: 'Expert en architecture logicielle et intégration de systèmes.',
-    gradient: 'linear-gradient(135deg, #1E56A0, #00B4D8)',
+    name: 'Abdellah ABOUSSAAD',
+    title: 'Consultant Senior SAP / Expert ERP',
+    bio: 'Spécialiste du conseil métier et de l\'accompagnement à la transformation digitale.',
+    gradient: 'linear-gradient(135deg, #1F6FB2 0%, #0A2463 100%)',
+    linkedin: 'https://www.linkedin.com/company/merit-sa/',
+    email: 'mailto:a.aboussaad@merit.ma'
   },
   {
-    name: 'Nadia Alaoui',
-    title: 'Responsable Succès Client',
-    bio: 'Dédiée à assurer des résultats et une satisfaction client exceptionnels.',
-    gradient: 'linear-gradient(135deg, #0A2463, #0096C7)',
-  },
+    name: 'Khalid ABDELMOUNIM',
+    title: 'Responsable Technique (Hardware & Infrastructures)',
+    bio: 'Expert en systèmes, réseaux et infrastructures technologiques pour la continuité de service.',
+    gradient: 'linear-gradient(135deg, #1F6FB2 0%, #0A2463 100%)',
+    linkedin: 'https://www.linkedin.com/company/merit-sa/',
+    email: 'mailto:k.abdelmounim@merit.ma'
+  }
 ];
 
 const values = ['Innovation', 'Intégrité', 'Excellence', 'Partenariat', 'Engagement'];
@@ -228,9 +235,8 @@ export default function About() {
                 <div className="about-team__divider" />
                 <p className="about-team__bio">{member.bio}</p>
                 <div className="about-team__socials">
-                  <a href="#" aria-label="LinkedIn"><FiLinkedin /></a>
-                  <a href="#" aria-label="Twitter"><FiTwitter /></a>
-                  <a href="#" aria-label="Email"><FiMail /></a>
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FiLinkedin /></a>
+                  <a href={member.email} aria-label="Email"><FiMail /></a>
                 </div>
               </ScrollReveal>
             ))}
